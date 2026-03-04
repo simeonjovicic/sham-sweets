@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sham Sweets — Luxury Arabian patisserie. Handcrafted confections rooted in Levantine artistry.">
+  <title>Sham Sweets — Luxury Arabian Patisserie</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#hero" class="logo">Sham Sweets<span class="logo-dot"></span></a>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="#bestsellers">Creations</a></li>
+        <li><a href="#visit">Contact us</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#hero">Home</a>
+    <a href="#about">About us</a>
+    <a href="#bestsellers">Creations</a>
+    <a href="#visit">Contact us</a>
+  </div>
+
+  <main>
+
+    <!-- ======================== HERO ======================== -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+
+        <div class="hero-text">
+          <h1>Your Daily Dose<br>of <em>Sweetness</em></h1>
+          <p class="hero-sub">Premium Arabian confections<br>handcrafted from heritage recipes</p>
+
+          <!-- Spinning circular CTA -->
+          <a href="#bestsellers" class="circle-cta" aria-label="Explore creations">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
+              </defs>
+              <text font-size="10.5" font-family="Inter, sans-serif" letter-spacing="3.5" text-transform="uppercase" fill="#111">
+                <textPath href="#circlePath">EXPLORE NOW • EXPLORE NOW •&nbsp;</textPath>
+              </text>
+            </svg>
+            <div class="circle-cta-arrow"><span>&#8599;</span></div>
+          </a>
+        </div>
+
+        <div class="hero-image">
+          <div class="hero-shape" aria-hidden="true"></div>
+          <div class="hero-image-frame">
+            <img
+              src="https://picsum.photos/seed/shamhero3/600/700"
+              alt="Assortment of luxury Arabian pastries"
+              width="600" height="700"
+            >
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== BESTSELLERS ======================== -->
+    <section class="section bestsellers" id="bestsellers">
+      <div class="container">
+
+        <h2 class="section-title reveal"><em>Our</em> Bestsellers</h2>
+
+        <div class="products-grid">
+
+          <article class="product-card reveal">
+            <div class="product-card-img">
+              <img src="https://picsum.photos/seed/pistachio77/400/400" alt="Pistachio Baklawa" loading="lazy" width="400" height="400">
+            </div>
+            <h3>Pistachio Baklawa</h3>
+            <div class="product-card-meta">
+              <span class="collection">Signature</span>
+              <span class="rating"><span class="star">&#9733;</span> 4.9</span>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card-img">
+              <img src="https://picsum.photos/seed/dates88/400/400" alt="Royal Date Maamoul" loading="lazy" width="400" height="400">
+            </div>
+            <h3>Royal Date Maamoul</h3>
+            <div class="product-card-meta">
+              <span class="collection">Heritage</span>
+              <span class="rating"><span class="star">&#9733;</span> 4.8</span>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card-img">
+              <img src="https://picsum.photos/seed/saffron99/400/400" alt="Saffron Kunafa" loading="lazy" width="400" height="400">
+            </div>
+            <h3>Saffron Kunafa</h3>
+            <div class="product-card-meta">
+              <span class="collection">Seasonal</span>
+              <span class="rating"><span class="star">&#9733;</span> 5.0</span>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card-img">
+              <img src="https://picsum.photos/seed/giftbox44/400/400" alt="Gift Collection" loading="lazy" width="400" height="400">
+            </div>
+            <h3>Gift Collection</h3>
+            <div class="product-card-meta">
+              <span class="collection">Bespoke</span>
+              <span class="rating"><span class="star">&#9733;</span> 4.9</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="bestsellers-cta reveal">
+          <a href="#" class="btn-dark">Discover all creations <span class="arrow">&#8594;</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== ABOUT / TRADITION ======================== -->
+    <section class="section about" id="about">
+      <div class="container about-inner">
+
+        <div class="about-image reveal">
+          <div class="sparkle" aria-hidden="true"></div>
+          <img
+            src="https://picsum.photos/seed/shamstory2/600/700"
+            alt="Artisan preparing traditional sweets"
+            loading="lazy"
+            width="600" height="700"
+          >
+        </div>
+
+        <div class="about-text reveal">
+          <h2 class="section-title"><em>Tradition</em><br>Meets Taste</h2>
+          <p>
+            We are an artisan patisserie dedicated to crafting exquisite Arabian
+            confections using the finest ingredients. Our passion for the craft is
+            evident in every bite. Using heritage recipes passed down through
+            generations, we create a taste experience that is both comforting
+            and unforgettable.
+          </p>
+          <a href="#bestsellers" class="btn-dark">Shop now <span class="arrow">&#8594;</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== DARK FEATURE ======================== -->
+    <section class="section feature-dark">
+      <div class="container feature-dark-inner">
+
+        <div class="feature-dark-image reveal">
+          <img
+            src="https://picsum.photos/seed/giftlux22/800/600"
+            alt="Luxury gift collection"
+            loading="lazy"
+            width="800" height="600"
+          >
+        </div>
+
+        <div class="feature-dark-text reveal">
+          <h2 class="section-title"><em>Delicious</em> Gifting</h2>
+          <p>
+            Curated assortments in hand-lacquered boxes lined with silk.
+            Our cozy patisserie captures the aroma of freshly baked pastries
+            and the warmth of Arabian hospitality. We believe that every gift
+            should be a delightful experience.
+          </p>
+          <a href="#" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">
+            Enquire <span class="arrow">&#8594;</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== TESTIMONIAL ======================== -->
+    <section class="section testimonial" id="visit">
+      <div class="container">
+
+        <h2 class="section-title reveal">Why Our Customers Love<br><em>Sham Sweets</em></h2>
+
+        <div class="testimonial-card reveal">
+          <div class="testimonial-image">
+            <img
+              src="https://picsum.photos/seed/pastryclose/500/500"
+              alt="Customer favourite pastry"
+              loading="lazy"
+              width="500" height="500"
+            >
+          </div>
+
+          <div class="testimonial-content">
+            <h3>The baklawa is incredible! Crispy, buttery, and perfectly sweet.</h3>
+            <p>
+              Every piece is crafted with such care — you can taste the quality
+              of the ingredients. The pistachio is the best I have ever had.
+              It reminds me of the sweets my grandmother used to make. Truly
+              a luxurious experience.
+            </p>
+            <div class="testimonial-author">
+              <span class="name">Nour Al-Hassan</span>
+              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-nav">
+          <button class="nav-prev" aria-label="Previous testimonial">&#8592;</button>
+          <button class="nav-next" aria-label="Next testimonial">&#8594;</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <!-- Newsletter row -->
+      <div class="footer-newsletter-row reveal">
+        <h2 class="section-title"><em>Exclusive Offers,</em> New<br>Creations</h2>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)" novalidate>
+          <input type="email" placeholder="Enter your email" aria-label="Email" required>
+          <button type="submit" aria-label="Subscribe">&#8594;</button>
+        </form>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Footer grid -->
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>Location</h4>
+          <address>
+            123 Heritage Lane,<br>
+            The Luxury Quarter,<br>
+            Dubai, UAE
+          </address>
+          <p style="margin-top:8px;">+971 (0) 000 0000</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#hero">Home</a>
+          <a href="#about">About us</a>
+          <a href="#bestsellers">Creations</a>
+          <a href="#visit">Contact us</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow us</h4>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">X (Twitter)</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Opening Hours</h4>
+          <div class="hours-grid">
+            <span>Mon – Fri: 9:00 – 20:00</span>
+            <span>Saturday: 10:00 – 21:00</span>
+            <span>Sunday: 11:00 – 18:00</span>
+            <span>Holidays: Closed</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sham Sweets.</p>
+        <p>Crafted in the Levantine tradition.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
