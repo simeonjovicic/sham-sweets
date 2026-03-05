@@ -15,7 +15,7 @@
 
 /* --- Hamburger + mobile drawer --- */
 (function () {
-  var btn    = document.getElementById('hamburger');
+  var btn = document.getElementById('hamburger');
   var drawer = document.getElementById('mobile-drawer');
 
   function open() {
@@ -50,8 +50,8 @@
   /* Close on outside click (desktop) */
   document.addEventListener('click', function (e) {
     if (drawer.classList.contains('open') &&
-        !btn.contains(e.target) &&
-        !drawer.contains(e.target)) {
+      !btn.contains(e.target) &&
+      !drawer.contains(e.target)) {
       close();
     }
   });
@@ -98,16 +98,43 @@
 /* --- Newsletter visual feedback --- */
 function handleNewsletter(e) {
   e.preventDefault();
-  var input  = e.target.querySelector('input');
+  var input = e.target.querySelector('input');
   var button = e.target.querySelector('button');
-  var orig   = button.innerHTML;
+  var orig = button.innerHTML;
 
   button.innerHTML = '&#10003;';
-  button.disabled  = true;
-  input.value      = '';
+  button.disabled = true;
+  input.value = '';
 
   setTimeout(function () {
     button.innerHTML = orig;
-    button.disabled  = false;
+    button.disabled = false;
   }, 3000);
 }
+
+/* --- Reviews carousel — mouse drag to scroll --- */
+(function () {
+  var carousel = document.querySelector('.reviews-carousel');
+  if (!carousel) return;
+
+  var isDown = false;
+  var startX = 0;
+  var scrollLeft = 0;
+
+  carousel.addEventListener('mousedown', function (e) {
+    isDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  carousel.addEventListener('mouseleave', function () { isDown = false; });
+  carousel.addEventListener('mouseup', function () { isDown = false; });
+
+  carousel.addEventListener('mousemove', function (e) {
+    if (!isDown) return;
+    e.preventDefault();
+    var x = e.pageX - carousel.offsetLeft;
+    var walk = (x - startX) * 1.5;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+})();
