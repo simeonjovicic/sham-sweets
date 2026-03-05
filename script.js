@@ -37,12 +37,23 @@
     drawer.classList.contains('open') ? close() : open();
   });
 
+  /* Close when clicking a nav link */
   drawer.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', close);
   });
 
+  /* Close when tapping blank area inside drawer (background tap) */
+  drawer.addEventListener('click', function (e) {
+    if (e.target === drawer) close();
+  });
+
+  /* Close on outside click (desktop) */
   document.addEventListener('click', function (e) {
-    if (!btn.contains(e.target) && !drawer.contains(e.target)) close();
+    if (drawer.classList.contains('open') &&
+        !btn.contains(e.target) &&
+        !drawer.contains(e.target)) {
+      close();
+    }
   });
 
   document.addEventListener('keydown', function (e) {

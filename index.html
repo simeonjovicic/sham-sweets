@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sham Sweets — Luxuriöse arabische Patisserie. Handgefertigte Konfekte aus der levantinischen Tradition.">
-  <title>Sham Sweets — Luxuriöse Arabische Patisserie</title>
+  <meta name="description"
+    content="Sham Sweets — Luxuriöse arabische Patisserie in Wien. Handgefertigte Baklawa und Konfekte aus der levantinischen Tradition.">
+  <title>Sham Sweets — Arabische Patisserie Wien</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -23,6 +28,8 @@
         <li><a href="#hero">Startseite</a></li>
         <li><a href="#about">Über uns</a></li>
         <li><a href="#bestsellers">Kreationen</a></li>
+        <li><a href="#gallery">Store</a></li>
+        <li><a href="#reviews">Bewertungen</a></li>
         <li><a href="#visit">Kontakt</a></li>
       </ul>
 
@@ -39,6 +46,8 @@
     <a href="#hero">Startseite</a>
     <a href="#about">Über uns</a>
     <a href="#bestsellers">Kreationen</a>
+    <a href="#gallery">Store</a>
+    <a href="#reviews">Bewertungen</a>
     <a href="#visit">Kontakt</a>
   </div>
 
@@ -50,30 +59,35 @@
 
         <div class="hero-text">
           <h1>Deine tägliche Dosis<br>an <em>Süße</em></h1>
-          <p class="hero-sub">Erstklassige arabische Konfekte<br>handgefertigt nach traditionellen Rezepten</p>
+          <p class="hero-sub">Erstklassige arabische Baklawa &amp; Konfekte<br>handgefertigt nach traditionellen
+            Rezepten</p>
 
-          <!-- Spinning circular CTA -->
-          <a href="#bestsellers" class="circle-cta" aria-label="Kreationen entdecken">
-            <svg viewBox="0 0 100 100">
-              <defs>
-                <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none"/>
-              </defs>
-              <text font-size="10.5" font-family="Inter, sans-serif" letter-spacing="3.5" text-transform="uppercase" fill="#111">
-                <textPath href="#circlePath">ENTDECKEN • ENTDECKEN •&nbsp;</textPath>
-              </text>
-            </svg>
-            <div class="circle-cta-arrow"><span>&#8599;</span></div>
-          </a>
+          <!-- Badge + CTA stacked -->
+          <div class="hero-bottom">
+            <div class="hero-badge">
+              <span class="badge-stars">★★★★★</span>
+              <span class="badge-text">5,0 · 22 Google-Bewertungen</span>
+            </div>
+            <!-- Spinning circular CTA -->
+            <a href="#bestsellers" class="circle-cta" aria-label="Kreationen entdecken">
+              <svg viewBox="0 0 100 100">
+                <defs>
+                  <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
+                </defs>
+                <text font-size="10.5" font-family="Inter, sans-serif" letter-spacing="3.5" fill="#111">
+                  <textPath href="#circlePath">ENTDECKEN • ENTDECKEN •&nbsp;</textPath>
+                </text>
+              </svg>
+              <div class="circle-cta-arrow"><span>&#8599;</span></div>
+            </a>
+          </div>
         </div>
 
         <div class="hero-image">
           <div class="hero-shape" aria-hidden="true"></div>
           <div class="hero-image-frame">
-            <img
-              src="/assets/images/baklava1.jpg"
-              alt="Auswahl an luxuriösen arabischen Gebäckstücken"
-              width="600" height="700"
-            >
+            <img src="/assets/images/baklava_real.jpg" alt="Frische Pistazien-Baklawa auf einem Tablett" width="600"
+              height="700">
           </div>
         </div>
 
@@ -90,29 +104,31 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/typeshit.jpg" alt="Pistazien-Baklawa" loading="lazy" width="400" height="400">
+              <img src="/assets/images/baklava_real.jpg" alt="Pistazien-Baklawa" loading="lazy" width="400"
+                height="400">
             </div>
             <h3>Pistazien-Baklawa</h3>
             <div class="product-card-meta">
               <span class="collection">Signatur</span>
+              <span class="rating"><span class="star">&#9733;</span> 5.0</span>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card-img">
+              <img src="/assets/images/boxes_real.jpg" alt="Gemischte Süßigkeitenauswahl" loading="lazy" width="400"
+                height="400">
+            </div>
+            <h3>Süßigkeiten-Mix</h3>
+            <div class="product-card-meta">
+              <span class="collection">Tradition</span>
               <span class="rating"><span class="star">&#9733;</span> 4.9</span>
             </div>
           </article>
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/typeshit.jpg" alt="Königliches Dattel-Maamoul" loading="lazy" width="400" height="400">
-            </div>
-            <h3>Königliches Dattel-Maamoul</h3>
-            <div class="product-card-meta">
-              <span class="collection">Tradition</span>
-              <span class="rating"><span class="star">&#9733;</span> 4.8</span>
-            </div>
-          </article>
-
-          <article class="product-card reveal">
-            <div class="product-card-img">
-              <img src="/assets/images/typeshit.jpg" alt="Safran-Kunafa" loading="lazy" width="400" height="400">
+              <img src="/assets/images/baklava1.jpg" alt="Safran-Kunafa" loading="lazy" width="400" height="400">
             </div>
             <h3>Safran-Kunafa</h3>
             <div class="product-card-meta">
@@ -123,9 +139,10 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/typeshit.jpg" alt="Geschenkkollektion" loading="lazy" width="400" height="400">
+              <img src="/assets/images/boxes_real.jpg" alt="Geschenkkollektion Maamoul" loading="lazy" width="400"
+                height="400">
             </div>
-            <h3>Geschenkkollektion</h3>
+            <h3>Dattel-Maamoul</h3>
             <div class="product-card-meta">
               <span class="collection">Exklusiv</span>
               <span class="rating"><span class="star">&#9733;</span> 4.9</span>
@@ -135,7 +152,7 @@
         </div>
 
         <div class="bestsellers-cta reveal">
-          <a href="#" class="btn-dark">Alle Kreationen entdecken <span class="arrow">&#8594;</span></a>
+          <a href="#visit" class="btn-dark">Besuche uns in Wien <span class="arrow">&#8594;</span></a>
         </div>
 
       </div>
@@ -147,24 +164,49 @@
 
         <div class="about-image reveal">
           <div class="sparkle" aria-hidden="true"></div>
-          <img
-            src="/assets/images/typeshit.jpg"
-            alt="Kunsthandwerker bei der Zubereitung traditioneller Süßigkeiten"
-            loading="lazy"
-            width="600" height="700"
-          >
+          <img src="/assets/images/store_interior_real.jpg" alt="Innenraum des Sham Sweets Stores in Wien"
+            loading="lazy" width="600" height="700">
         </div>
 
         <div class="about-text reveal">
           <h2 class="section-title"><em>Tradition</em><br>trifft Geschmack</h2>
           <p>
-            Wir sind eine handwerkliche Patisserie, die sich der Herstellung
+            Wir sind eine handwerkliche Patisserie in Wien, die sich der Herstellung
             exquisiter arabischer Konfekte aus den feinsten Zutaten widmet.
             Unsere Leidenschaft für das Handwerk zeigt sich in jedem Bissen.
             Mit über Generationen weitergegebenen Rezepten schaffen wir ein
             Geschmackserlebnis, das gleichermaßen vertraut und unvergesslich ist.
           </p>
+          <p style="margin-top: 12px;">
+            Besuche uns in unserem Store in Wien — täglich geöffnet bis 22:00 Uhr.
+          </p>
           <a href="#bestsellers" class="btn-dark">Jetzt entdecken <span class="arrow">&#8594;</span></a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================== STORE GALLERY ======================== -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+
+        <h2 class="section-title reveal"><em>Unser</em> Store</h2>
+        <p class="gallery-sub reveal">Besuche uns und erlebe die einzigartige Atmosphäre.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-item--large reveal">
+            <img src="/assets/images/store_interior_real.jpg"
+              alt="Store Innenraum — elegante weiße Bögen mit blauen Boxen" loading="lazy">
+            <div class="gallery-overlay"><span>Innenraum</span></div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="/assets/images/store_front_real.jpg" alt="Store Außenansicht bei Nacht in Wien" loading="lazy">
+            <div class="gallery-overlay"><span>Außenansicht</span></div>
+          </div>
+          <div class="gallery-item reveal">
+            <img src="/assets/images/baklava_real.jpg" alt="Frische Baklawa aus unserer Auslage" loading="lazy">
+            <div class="gallery-overlay"><span>Frische Baklawa</span></div>
+          </div>
         </div>
 
       </div>
@@ -175,12 +217,8 @@
       <div class="container feature-dark-inner">
 
         <div class="feature-dark-image reveal">
-          <img
-            src="/assets/images/typeshit.jpg"
-            alt="Luxuriöse Geschenkkollektion"
-            loading="lazy"
-            width="800" height="600"
-          >
+          <img src="/assets/images/boxes_real.jpg" alt="Luxuriöse Geschenkkollektion arabischer Süßigkeiten"
+            loading="lazy" width="800" height="600">
         </div>
 
         <div class="feature-dark-text reveal">
@@ -189,9 +227,9 @@
             Kuratierte Zusammenstellungen in handlackierten, seidengefütterten
             Schachteln. Unsere Patisserie fängt das Aroma frisch gebackener
             Köstlichkeiten und die Wärme arabischer Gastfreundschaft ein.
-            Wir glauben, dass jedes Geschenk ein besonderes Erlebnis sein sollte.
+            Perfekt als Geschenk für jeden Anlass.
           </p>
-          <a href="#" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">
+          <a href="#visit" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">
             Anfragen <span class="arrow">&#8594;</span>
           </a>
         </div>
@@ -199,40 +237,137 @@
       </div>
     </section>
 
-    <!-- ======================== TESTIMONIAL ======================== -->
-    <section class="section testimonial" id="visit">
+    <!-- ======================== GOOGLE REVIEWS ======================== -->
+    <section class="section reviews" id="reviews">
       <div class="container">
 
-        <h2 class="section-title reveal">Warum unsere Kunden<br><em>Sham Sweets</em> lieben</h2>
-
-        <div class="testimonial-card reveal">
-          <div class="testimonial-image">
-            <img
-              src="/assets/images/typeshit.jpg"
-              alt="Lieblings-Gebäck unserer Kunden"
-              loading="lazy"
-              width="500" height="500"
-            >
-          </div>
-
-          <div class="testimonial-content">
-            <h3>Die Baklawa ist unglaublich! Knusprig, buttrig und perfekt süß.</h3>
-            <p>
-              Jedes Stück wird mit so viel Sorgfalt hergestellt — man schmeckt
-              die Qualität der Zutaten. Die Pistazien-Baklawa ist die beste,
-              die ich je hatte. Sie erinnert mich an die Süßigkeiten, die meine
-              Großmutter früher gemacht hat. Ein wahrhaft luxuriöses Erlebnis.
-            </p>
-            <div class="testimonial-author">
-              <span class="name">Nour Al-Hassan</span>
-              <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            </div>
+        <div class="reviews-header reveal">
+          <h2 class="section-title">Was unsere Gäste<br><em>sagen</em></h2>
+          <div class="google-rating-badge">
+            <img src="https://www.google.com/favicon.ico" alt="Google" width="20" height="20">
+            <span class="rating-number">5,0</span>
+            <span class="rating-stars">★★★★★</span>
+            <span class="rating-count">22 Bewertungen</span>
           </div>
         </div>
 
-        <div class="testimonial-nav">
-          <button class="nav-prev" aria-label="Vorherige Bewertung">&#8592;</button>
-          <button class="nav-next" aria-label="Nächste Bewertung">&#8594;</button>
+        <div class="reviews-grid">
+
+          <!-- Review 1 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #4e9af1;">A</div>
+              <div class="reviewer-info">
+                <strong>Aybüke Akbulut</strong>
+                <span class="reviewer-meta">6 Bewertungen · 1 Foto</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Sooo lecker! Das Essen schaut nicht nur gut aus, es ist mega lecker!
+              Der Laden ist eine 11/10 ❤️ Ich komme definitiv wieder!"
+            </p>
+            <span class="review-time">vor 1 Woche</span>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #e67e22;">K</div>
+              <div class="reviewer-info">
+                <strong>Konrad Oberlechner</strong>
+                <span class="reviewer-meta">Local Guide · 34 Bewertungen</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Waren zu Besuch in Wien und haben Sham zufällig entdeckt. Eine der besten
+              Baklava, die wir je gegessen haben. Beim nächsten Wien-Besuch auf jeden Fall ein Muss!"
+            </p>
+            <span class="review-time">vor 3 Wochen · €10–20</span>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #27ae60;">M</div>
+              <div class="reviewer-info">
+                <strong>Maria S.</strong>
+                <span class="reviewer-meta">Local Guide · 18 Bewertungen</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Wunderschöner kleiner Laden mit einer traumhaften Auswahl. Die Baklava
+              ist frisch und unglaublich gut. Das Personal ist sehr freundlich und hilfsbereit."
+            </p>
+            <span class="review-time">vor 2 Wochen</span>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #8e44ad;">T</div>
+              <div class="reviewer-info">
+                <strong>Thomas H.</strong>
+                <span class="reviewer-meta">5 Bewertungen</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Absolut köstlich! Habe die Pistazien-Baklawa probiert — perfekte Balance
+              zwischen Süße und Knusprigkeit. Toller Store, tolles Ambiente. Sehr empfehlenswert!"
+            </p>
+            <span class="review-time">vor 1 Monat</span>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #e74c3c;">S</div>
+              <div class="reviewer-info">
+                <strong>Sarah K.</strong>
+                <span class="reviewer-meta">Local Guide · 62 Bewertungen</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Der schönste Süßigkeitenladen in Wien! Das Interieur ist ein Traum —
+              weiße Bögen, blaue Boxen — und die Produkte schmecken genauso gut wie sie aussehen."
+            </p>
+            <span class="review-time">vor 4 Wochen</span>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="review-card reveal">
+            <div class="review-card-header">
+              <div class="reviewer-avatar" style="background: #16a085;">L</div>
+              <div class="reviewer-info">
+                <strong>Laura M.</strong>
+                <span class="reviewer-meta">9 Bewertungen · 3 Fotos</span>
+              </div>
+              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+            </div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              „Habe dort ein Geschenk-Set gekauft und meine Familie war begeistert.
+              Hochwertige Verpackung, frische Produkte. Definitiv die beste arabische
+              Patisserie in Wien!"
+            </p>
+            <span class="review-time">vor 5 Wochen</span>
+          </div>
+
+        </div>
+
+        <div class="reviews-cta reveal">
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-outline">
+            Alle Bewertungen auf Google <span class="arrow">&#8594;</span>
+          </a>
         </div>
 
       </div>
@@ -240,8 +375,8 @@
 
   </main>
 
-  <!-- ======================== FOOTER ======================== -->
-  <footer class="footer">
+  <!-- ======================== FOOTER / KONTAKT ======================== -->
+  <footer class="footer" id="visit">
     <div class="container">
 
       <!-- Newsletter row -->
@@ -255,41 +390,35 @@
 
       <div class="footer-divider"></div>
 
-      <!-- Footer grid -->
+      <!-- Footer grid: 3 columns -->
       <div class="footer-grid">
 
-        <div class="footer-col">
-          <h4>Standort</h4>
+        <div class="footer-col footer-col--brand">
+          <div class="footer-logo">Sham Sweets</div>
+          <p class="footer-tagline">Handgefertigte arabische Konfekte<br>aus Wien, Österreich 🇦🇹</p>
           <address>
-            123 Heritage Lane,<br>
-            The Luxury Quarter,<br>
-            Dubai, VAE
+            Wien, Österreich
           </address>
-          <p style="margin-top:8px;">+971 (0) 000 0000</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Schnellzugriff</h4>
-          <a href="#hero">Startseite</a>
-          <a href="#about">Über uns</a>
-          <a href="#bestsellers">Kreationen</a>
-          <a href="#visit">Kontakt</a>
+          <p style="margin-top:8px;">
+            <a href="https://maps.google.com/?q=Sham+Sweets+Wien" target="_blank" rel="noopener"
+              style="color:inherit; text-decoration: underline;">
+              📍 Auf Google Maps öffnen
+            </a>
+          </p>
         </div>
 
         <div class="footer-col">
           <h4>Folge uns</h4>
-          <a href="#">Instagram</a>
-          <a href="#">TikTok</a>
-          <a href="#">X (Twitter)</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">TikTok</a>
+          <a href="#" target="_blank">X (Twitter)</a>
         </div>
 
         <div class="footer-col">
           <h4>Öffnungszeiten</h4>
           <div class="hours-grid">
-            <span>Mo – Fr: 9:00 – 20:00</span>
-            <span>Samstag: 10:00 – 21:00</span>
-            <span>Sonntag: 11:00 – 18:00</span>
-            <span>Feiertage: Geschlossen</span>
+            <span>Mo – So: 10:00 – 22:00</span>
+            <span class="open-now">🟢 Heute bis 22:00 Uhr geöffnet</span>
           </div>
         </div>
 
@@ -297,7 +426,7 @@
 
       <div class="footer-bottom">
         <p>&copy; 2026 Sham Sweets.</p>
-        <p>Gefertigt in levantinischer Tradition.</p>
+        <p>Gefertigt in levantinischer Tradition · Wien, Österreich</p>
       </div>
 
     </div>
@@ -305,4 +434,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
