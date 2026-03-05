@@ -317,6 +317,7 @@ button {
   width: 100%;
   height: 100%;
   animation: spin 12s linear infinite;
+  will-change: transform;
 }
 
 @keyframes spin {
@@ -538,6 +539,8 @@ button {
    ================================================================ */
 .about {
   background: var(--bg);
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
 }
 
 .about-inner {
@@ -627,6 +630,8 @@ button {
   color: var(--white);
   overflow: hidden;
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }
 
 .feature-dark::before {

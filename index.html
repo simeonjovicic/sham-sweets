@@ -8,10 +8,14 @@
     content="Sham Sweets — Luxuriöse arabische Patisserie in Wien. Handgefertigte Baklawa und Konfekte aus der levantinischen Tradition.">
   <title>Sham Sweets — Arabische Patisserie Wien</title>
 
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="/assets/images/BaklavaHero.jpeg" fetchpriority="high">
+
+  <!-- Fonts: only weights actually used -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
@@ -235,7 +239,7 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/baklava2.png" alt="Pistazien-Baklawa" loading="lazy" width="400" height="400">
+              <img src="/assets/images/baklava2.jpg" alt="Pistazien-Baklawa" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <h3>Pistazien-Baklawa</h3>
             <div class="product-card-meta">
@@ -245,7 +249,7 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/baklava7.png" alt="Gemischte Süßigkeitenauswahl" loading="lazy" width="400"
+              <img src="/assets/images/baklava7.jpg" alt="Gemischte Süßigkeitenauswahl" loading="lazy" decoding="async" width="400"
                 height="400">
             </div>
             <h3>Süßigkeiten-Mix</h3>
@@ -256,7 +260,7 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/baklava1.jpg" alt="Safran-Kunafa" loading="lazy" width="400" height="400">
+              <img src="/assets/images/baklava1.jpg" alt="Safran-Kunafa" loading="lazy" decoding="async" width="400" height="400">
             </div>
             <h3>Safran-Kunafa</h3>
             <div class="product-card-meta">
@@ -266,7 +270,7 @@
 
           <article class="product-card reveal">
             <div class="product-card-img">
-              <img src="/assets/images/baklava3.png" alt="Geschenkkollektion Maamoul" loading="lazy" width="400"
+              <img src="/assets/images/baklava3.jpg" alt="Geschenkkollektion Maamoul" loading="lazy" decoding="async" width="400"
                 height="400">
             </div>
             <h3>Dattel-Maamoul</h3>
@@ -321,16 +325,16 @@
 
         <div class="gallery-grid">
           <div class="gallery-item gallery-item--large reveal">
-            <img src="/assets/images/baklava7.png" alt="Store Innenraum — elegante weiße Bögen mit blauen Boxen"
-              loading="lazy">
+            <img src="/assets/images/baklava7.jpg" alt="Store Innenraum — elegante weiße Bögen mit blauen Boxen"
+              loading="lazy" decoding="async">
             <div class="gallery-overlay"><span>Innenraum</span></div>
           </div>
           <div class="gallery-item reveal">
-            <img src="/assets/images/baklava8.png" alt="Store Außenansicht bei Nacht in Wien" loading="lazy">
+            <img src="/assets/images/baklava8.jpg" alt="Store Außenansicht bei Nacht in Wien" loading="lazy" decoding="async">
             <div class="gallery-overlay"><span>Außenansicht</span></div>
           </div>
           <div class="gallery-item reveal">
-            <img src="/assets/images/baklava9.jpg" alt="Frische Baklawa aus unserer Auslage" loading="lazy">
+            <img src="/assets/images/baklava9.jpg" alt="Frische Baklawa aus unserer Auslage" loading="lazy" decoding="async">
             <div class="gallery-overlay"><span>Frische Baklawa</span></div>
           </div>
         </div>
@@ -343,8 +347,8 @@
       <div class="container feature-dark-inner">
 
         <div class="feature-dark-image reveal">
-          <img src="/assets/images/baklava10.png" alt="Luxuriöse Geschenkkollektion arabischer Süßigkeiten"
-            loading="lazy" width="800" height="600">
+          <img src="/assets/images/baklava10.jpg" alt="Luxuriöse Geschenkkollektion arabischer Süßigkeiten"
+            loading="lazy" decoding="async" width="800" height="600">
         </div>
 
         <div class="feature-dark-text reveal">
@@ -423,7 +427,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
