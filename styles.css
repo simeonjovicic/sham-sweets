@@ -12,23 +12,22 @@
 }
 
 :root {
-  --bg: #f5fafd;
-  /* Very light teal-tinted white */
+  --bg: #fffef9;           /* Warm white — main page background */
   --white: #ffffff;
   --black: #111111;
-  --dark: #1e3a4a;
-  /* Deep navy-teal for dark sections */
-  --text: #2c3e50;
-  --text-muted: #6b8a9a;
-  --gold: #3498C4;
-  /* Replaced gold with brand teal */
-  --brand: #3498C4;
-  /* Store teal-blue (#3498C4 from walls & arches) */
-  --brand-dark: #2178a0;
-  /* Darker teal for hover states */
-  --brand-light: #e8f5fc;
-  /* Very light teal for subtle backgrounds */
-  --border: rgba(52, 152, 196, 0.12);
+  --dark: #1a1209;         /* Warm near-black for dark sections */
+  --text: #2d2416;         /* Warm brown-black body text */
+  --text-muted: #7a6a52;   /* Warm tan muted text */
+
+  --gold: #C9A84C;         /* Rich brushed gold */
+  --gold-light: #f7edcc;   /* Pale gold tint for backgrounds */
+  --silver: #C8C8C8;       /* Metallic silver */
+  --accent: #89CFF0;       /* Baby blue highlight */
+
+  --brand: #C9A84C;
+  --brand-dark: #a8872e;
+  --brand-light: #fdf6e3;
+  --border: rgba(201, 168, 76, 0.2);
 
   --font-display: 'Playfair Display', 'Georgia', serif;
   --font-body: 'Inter', 'Helvetica Neue', sans-serif;
@@ -100,7 +99,7 @@ button {
 }
 
 .navbar.scrolled {
-  background: rgba(248, 246, 243, 0.95);
+  background: rgba(255, 254, 249, 0.96);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
@@ -229,11 +228,36 @@ button {
   overflow: hidden;
 }
 
+/* Full-bleed background image */
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/BaklavaHero.jpeg');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 0;
+}
+
+/* Overlay — lighter so the image stays vibrant */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 6, 0, 0.52) 0%,
+    rgba(10, 6, 0, 0.28) 55%,
+    rgba(10, 6, 0, 0.08) 100%
+  );
+  z-index: 1;
+}
+
 .hero-inner {
   display: flex;
   flex-direction: column;
   gap: 40px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-text {
@@ -244,10 +268,11 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-weight: 700;
-  color: var(--black);
+  color: #ffffff;
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-text h1 em {
@@ -257,7 +282,7 @@ button {
 
 .hero-sub {
   font-size: 1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
   max-width: 380px;
   margin-bottom: 36px;
@@ -275,6 +300,10 @@ button {
   width: 100%;
   height: 100%;
   animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
 }
 
 .circle-cta-arrow {
@@ -302,67 +331,14 @@ button {
   transform: scale(1.1);
 }
 
-/* Hero image */
-.hero-image {
-  position: relative;
-}
-
-.hero-image-frame {
-  position: relative;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.hero-image-frame img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-}
-
-/* Dark geometric shape behind image */
-.hero-shape {
-  display: none;
-}
-
 @media (min-width: 768px) {
   .hero-inner {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-  }
-
-  .hero-text {
-    flex: 0 0 50%;
-  }
-
-  .hero-image {
-    flex: 0 0 45%;
-    position: relative;
-  }
-
-  .hero-image-frame img {
-    height: 500px;
-  }
-
-  .hero-shape {
-    display: block;
-    position: absolute;
-    top: -20px;
-    right: -40px;
-    width: 80%;
-    height: 110%;
-    background: var(--brand);
-    border-radius: 4px;
-    z-index: -1;
-    transform: rotate(-3deg);
+    justify-content: flex-start;
   }
 }
 
-@media (min-width: 1024px) {
-  .hero-image-frame img {
-    height: 580px;
-  }
-}
 
 /* ================================================================
    BUTTONS
@@ -372,11 +348,12 @@ button {
   align-items: center;
   gap: 12px;
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600;
   padding: 16px 32px;
   background: var(--brand);
-  color: var(--white);
+  color: #1a1209;
   border-radius: 40px;
+  letter-spacing: 0.01em;
   transition: background 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
@@ -408,7 +385,7 @@ button {
 
 .btn-outline:hover {
   background: var(--brand);
-  color: var(--white);
+  color: #1a1209;
 }
 
 /* ================================================================
@@ -790,7 +767,7 @@ button {
 }
 
 .nav-prev:hover {
-  background: #d0eaf5;
+  background: var(--gold-light);
 }
 
 .nav-next:hover {
@@ -867,7 +844,7 @@ button {
   margin-right: 4px;
   background: var(--brand);
   border-radius: 50%;
-  color: var(--white);
+  color: #1a1209;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -999,7 +976,7 @@ button {
 }
 
 .badge-stars {
-  color: #fbbc04;
+  color: var(--gold);
   font-size: 0.9rem;
   letter-spacing: 1px;
 }
@@ -1234,7 +1211,7 @@ button {
 }
 
 .review-stars {
-  color: #fbbc04;
+  color: var(--gold);
   font-size: 0.95rem;
   letter-spacing: 1px;
   margin-bottom: 10px;
