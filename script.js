@@ -1,9 +1,35 @@
 /* ================================================================
-   SHAM SWEETS — Minimal Premium Bakery
-   JavaScript
+   SHAM SWEETS — Premium Levantine Patisserie
+   Enhanced JavaScript
    ================================================================ */
 
 'use strict';
+
+/* --- Preloader --- */
+(function () {
+  var preloader = document.getElementById('preloader');
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      preloader.classList.add('done');
+    }, 800);
+  });
+
+  /* Safety fallback — never show preloader more than 3s */
+  setTimeout(function () {
+    preloader.classList.add('done');
+  }, 3000);
+})();
+
+/* --- Scroll progress bar --- */
+(function () {
+  var bar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', function () {
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = (scrollTop / docHeight) * 100;
+    bar.style.width = progress + '%';
+  }, { passive: true });
+})();
 
 /* --- Navbar scroll state --- */
 (function () {
@@ -37,17 +63,14 @@
     drawer.classList.contains('open') ? close() : open();
   });
 
-  /* Close when clicking a nav link */
   drawer.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', close);
   });
 
-  /* Close when tapping blank area inside drawer (background tap) */
   drawer.addEventListener('click', function (e) {
-    if (e.target === drawer) close();
+    if (e.target === drawer || e.target.classList.contains('mobile-drawer-content') === false) close();
   });
 
-  /* Close on outside click (desktop) */
   document.addEventListener('click', function (e) {
     if (drawer.classList.contains('open') &&
       !btn.contains(e.target) &&
@@ -61,7 +84,7 @@
   });
 })();
 
-/* --- Scroll reveal (IntersectionObserver) --- */
+/* --- Scroll reveal (IntersectionObserver) with stagger --- */
 (function () {
   var els = document.querySelectorAll('.reveal');
 
@@ -77,12 +100,12 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
   els.forEach(function (el) { observer.observe(el); });
 })();
 
-/* --- Smooth scroll --- */
+/* --- Smooth scroll for anchor links --- */
 (function () {
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -95,6 +118,28 @@
   });
 })();
 
+/* --- Hero parallax --- */
+(function () {
+  var heroBg = document.querySelector('.hero-bg-img');
+  if (!heroBg) return;
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var scrolled = window.scrollY;
+        if (scrolled < window.innerHeight * 1.2) {
+          heroBg.style.transform = 'translateY(' + (scrolled * 0.25) + 'px) scale(1.05)';
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
 /* --- Newsletter visual feedback --- */
 function handleNewsletter(e) {
   e.preventDefault();
@@ -104,11 +149,13 @@ function handleNewsletter(e) {
 
   button.innerHTML = '&#10003;';
   button.disabled = true;
+  button.style.background = '#1a8a1a';
   input.value = '';
 
   setTimeout(function () {
     button.innerHTML = orig;
     button.disabled = false;
+    button.style.background = '';
   }, 3000);
 }
 
@@ -136,5 +183,31 @@ function handleNewsletter(e) {
     var x = e.pageX - carousel.offsetLeft;
     var walk = (x - startX) * 1.5;
     carousel.scrollLeft = scrollLeft - walk;
+  });
+})();
+
+/* --- Active nav link highlight on scroll --- */
+(function () {
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+
+  if (!sections.length || !navLinks.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function (link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+  sections.forEach(function (section) {
+    observer.observe(section);
   });
 })();
