@@ -8,22 +8,39 @@
     content="Sham Sweets — Luxuriöse arabische Patisserie in Wien. Handgefertigte Baklawa und Konfekte aus der levantinischen Tradition.">
   <title>Sham Sweets — Arabische Patisserie Wien</title>
 
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="/assets/images/BaklavaHero.jpeg" fetchpriority="high">
+  <meta property="og:title" content="Sham Sweets — Arabische Patisserie Wien">
+  <meta property="og:description"
+    content="Erstklassige arabische Baklawa & Konfekte handgefertigt nach traditionellen Rezepten.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_AT">
 
-  <!-- Fonts: distinctive choices -->
+  <link rel="preload" as="image" href="/assets/images/BaklavaHero.jpeg" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap"
     rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Sham Sweets",
+    "description": "Erstklassige arabische Baklawa & Konfekte handgefertigt nach traditionellen Rezepten.",
+    "address": { "@type": "PostalAddress", "streetAddress": "Gumpendorfer Straße", "addressLocality": "Wien", "postalCode": "1060", "addressCountry": "AT" },
+    "openingHours": "Mo-Su 10:00-22:00",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "22" },
+    "priceRange": "€€"
+  }
+  </script>
 </head>
 
 <body>
+  <!-- Grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
 
-  <!-- Scroll progress bar -->
+  <!-- Scroll progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- Preloader -->
@@ -38,25 +55,21 @@
   <nav class="navbar" id="navbar">
     <div class="container nav-inner">
       <a href="#hero" class="logo">Sham Sweets<span class="logo-dot"></span></a>
-
       <ul class="nav-links">
         <li><a href="#hero">Startseite</a></li>
         <li><a href="#sham-story">Über uns</a></li>
         <li><a href="#bestsellers">Kreationen</a></li>
         <li><a href="#gallery">Store</a></li>
         <li><a href="#reviews">Bewertungen</a></li>
-        <li><a href="#visit">Kontakt</a></li>
+        <li><a href="#contact">Kontakt</a></li>
       </ul>
-
       <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
   </nav>
 
-  <!-- Mobile drawer — fullscreen overlay -->
+  <!-- Mobile drawer -->
   <div class="mobile-drawer" id="mobile-drawer">
     <div class="mobile-drawer-content">
       <a href="#hero">Startseite</a>
@@ -64,21 +77,16 @@
       <a href="#bestsellers">Kreationen</a>
       <a href="#gallery">Store</a>
       <a href="#reviews">Bewertungen</a>
-      <a href="#visit">Kontakt</a>
-      <div class="mobile-drawer-footer">
-        <span class="arabic-accent">شام</span>
-      </div>
+      <a href="#contact">Kontakt</a>
+      <div class="mobile-drawer-footer"><span class="arabic-accent">شام</span></div>
     </div>
   </div>
 
   <main>
-
     <!-- ======================== HERO ======================== -->
     <section class="hero" id="hero">
       <div class="hero-bg-img"></div>
       <div class="hero-overlay"></div>
-
-      <!-- Floating particles -->
       <div class="hero-particles" aria-hidden="true">
         <div class="particle particle-1"></div>
         <div class="particle particle-2"></div>
@@ -86,17 +94,15 @@
         <div class="particle particle-4"></div>
         <div class="particle particle-5"></div>
       </div>
-
       <div class="container hero-inner">
         <div class="hero-text">
-          <div class="hero-reveal-line"><span class="hero-word" style="animation-delay: 0.3s">Deine</span> <span
-              class="hero-word" style="animation-delay: 0.4s">tägliche</span> <span class="hero-word"
-              style="animation-delay: 0.5s">Dosis</span></div>
-          <div class="hero-reveal-line"><span class="hero-word" style="animation-delay: 0.6s">an</span> <em><span
-                class="hero-word" style="animation-delay: 0.7s">Süße</span></em></div>
+          <div class="hero-reveal-line"><span class="hero-word" style="animation-delay:0.3s">Deine</span> <span
+              class="hero-word" style="animation-delay:0.4s">tägliche</span> <span class="hero-word"
+              style="animation-delay:0.5s">Dosis</span></div>
+          <div class="hero-reveal-line"><span class="hero-word" style="animation-delay:0.6s">an</span> <em><span
+                class="hero-word" style="animation-delay:0.7s">Süße</span></em></div>
           <p class="hero-sub">Erstklassige arabische Baklawa &amp; Konfekte<br>handgefertigt nach traditionellen
             Rezepten</p>
-
           <div class="hero-bottom">
             <div class="hero-badge">
               <span class="badge-stars">★★★★★</span>
@@ -106,8 +112,7 @@
               <svg viewBox="0 0 100 100">
                 <defs>
                   <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-                </defs>
-                <text font-size="10.5" font-family="DM Sans, sans-serif" letter-spacing="3.5"
+                </defs><text font-size="10.5" font-family="DM Sans, sans-serif" letter-spacing="3.5"
                   fill="rgba(255,255,255,0.85)">
                   <textPath href="#circlePath">ENTDECKEN • ENTDECKEN •&nbsp;</textPath>
                 </text>
@@ -117,403 +122,409 @@
           </div>
         </div>
       </div>
-
-      <!-- Scroll indicator -->
       <div class="scroll-indicator" aria-hidden="true">
         <div class="scroll-line"></div>
       </div>
     </section>
 
-    <!-- ======================== SHAM STORY — What does Sham mean? ======================== -->
+    <!-- ======================== MARQUEE ======================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>Baklawa</span><span class="marquee-dot">✦</span><span>Kunafa</span><span
+          class="marquee-dot">✦</span><span>Maamoul</span><span class="marquee-dot">✦</span><span>Konfekte</span><span
+          class="marquee-dot">✦</span><span>Pistazien</span><span class="marquee-dot">✦</span><span>Damaskus</span><span
+          class="marquee-dot">✦</span><span>Tradition</span><span class="marquee-dot">✦</span><span>Wien</span><span
+          class="marquee-dot">✦</span>
+        <span>Baklawa</span><span class="marquee-dot">✦</span><span>Kunafa</span><span
+          class="marquee-dot">✦</span><span>Maamoul</span><span class="marquee-dot">✦</span><span>Konfekte</span><span
+          class="marquee-dot">✦</span><span>Pistazien</span><span class="marquee-dot">✦</span><span>Damaskus</span><span
+          class="marquee-dot">✦</span><span>Tradition</span><span class="marquee-dot">✦</span><span>Wien</span><span
+          class="marquee-dot">✦</span>
+      </div>
+    </div>
+
+    <!-- ======================== SHAM STORY ======================== -->
     <section class="section sham-story" id="sham-story">
       <div class="container">
-
-        <!-- Large Arabic calligraphy background -->
         <div class="sham-arabic-bg" aria-hidden="true">شام</div>
-
         <div class="sham-story-inner">
           <div class="sham-story-left reveal">
             <span class="section-label">Unsere Wurzeln</span>
             <h2 class="section-title">Was bedeutet<br><em>Sham?</em></h2>
           </div>
-
-          <div class="sham-story-right reveal" style="transition-delay: 0.15s">
+          <div class="sham-story-right reveal" style="transition-delay:0.15s">
             <div class="sham-meaning">
-              <div class="sham-meaning-item">
-                <span class="sham-arabic-word">الشام</span>
-                <span class="sham-translation">Die Levante · Großsyrien</span>
-              </div>
+              <div class="sham-meaning-item"><span class="sham-arabic-word">الشام</span><span
+                  class="sham-translation">Die Levante · Großsyrien</span></div>
               <div class="sham-meaning-divider"></div>
-              <div class="sham-meaning-item">
-                <span class="sham-arabic-word">دمشق</span>
-                <span class="sham-translation">Damaskus · Stadt des Jasmins</span>
-              </div>
+              <div class="sham-meaning-item"><span class="sham-arabic-word">دمشق</span><span
+                  class="sham-translation">Damaskus · Stadt des Jasmins</span></div>
             </div>
-            <p>
-              <strong>Sham</strong> (شام) ist der arabische Name für die Levante-Region
-              und besonders für Damaskus – eine der ältesten durchgehend bewohnten Städte
-              der Welt. Das Wort bedeutet „der Norden" und beschreibt die Richtung von der
-              Arabischen Halbinsel aus gesehen.
-            </p>
-            <p>
-              Damaskus, poetisch auch „Stadt des Jasmins" genannt, war einst das Herz
-              des Umayyaden-Kalifats und Wiege einer Jahrtausende alten Süßwarentradition.
-              Unsere Rezepte tragen diese Geschichte in jeder Schicht Baklawa weiter –
-              von der Levante nach Wien.
-            </p>
+            <p><strong>Sham</strong> (شام) ist der arabische Name für die Levante-Region und besonders für Damaskus –
+              eine der ältesten durchgehend bewohnten Städte der Welt. Das Wort bedeutet „der Norden" und beschreibt die
+              Richtung von der Arabischen Halbinsel aus gesehen.</p>
+            <p>Damaskus, poetisch auch „Stadt des Jasmins" genannt, war einst das Herz des Umayyaden-Kalifats und Wiege
+              einer Jahrtausende alten Süßwarentradition. Unsere Rezepte tragen diese Geschichte in jeder Schicht
+              Baklawa weiter – von der Levante nach Wien.</p>
           </div>
         </div>
-
-        <!-- Decorative arch inspired by store interior -->
         <div class="sham-arches reveal" aria-hidden="true">
           <div class="arch"></div>
           <div class="arch"></div>
           <div class="arch"></div>
         </div>
-
       </div>
     </section>
 
-    <!-- ======================== GOOGLE REVIEWS ======================== -->
+    <!-- ======================== REVIEWS ======================== -->
     <section class="section reviews" id="reviews">
       <div class="container">
-
         <div class="reviews-header reveal">
           <h2 class="section-title">Was unsere Gäste<br><em>sagen</em></h2>
           <div class="google-rating-badge">
             <img src="https://www.google.com/favicon.ico" alt="Google" width="20" height="20">
-            <span class="rating-number">5,0</span>
-            <span class="rating-stars">★★★★★</span>
-            <span class="rating-count">22 Bewertungen</span>
+            <span class="rating-number">5,0</span><span class="rating-stars">★★★★★</span><span class="rating-count">22
+              Bewertungen</span>
           </div>
         </div>
-
         <div class="reviews-carousel">
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #4e9af1;">A</div>
-              <div class="reviewer-info">
-                <strong>Aybüke Akbulut</strong>
-                <span class="reviewer-meta">6 Bewertungen · 1 Foto</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#4e9af1;">A</div>
+              <div class="reviewer-info"><strong>Aybüke Akbulut</strong><span class="reviewer-meta">6 Bewertungen · 1
+                  Foto</span></div><img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon"
+                width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua."
-            </p>
-            <span class="review-time">vor 1 Woche</span>
+            <p class="review-text">„Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua."</p><span class="review-time">vor 1 Woche</span>
           </div>
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #e67e22;">K</div>
-              <div class="reviewer-info">
-                <strong>Konrad Oberlechner</strong>
-                <span class="reviewer-meta">Local Guide · 34 Bewertungen</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#e67e22;">K</div>
+              <div class="reviewer-info"><strong>Konrad Oberlechner</strong><span class="reviewer-meta">Local Guide · 34
+                  Bewertungen</span></div><img src="https://www.google.com/favicon.ico" alt="Google"
+                class="review-google-icon" width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat."
-            </p>
-            <span class="review-time">vor 3 Wochen · €10–20</span>
+            <p class="review-text">„Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat."</p><span class="review-time">vor 3 Wochen · €10–20</span>
           </div>
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #27ae60;">M</div>
-              <div class="reviewer-info">
-                <strong>Maria S.</strong>
-                <span class="reviewer-meta">Local Guide · 18 Bewertungen</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#27ae60;">M</div>
+              <div class="reviewer-info"><strong>Maria S.</strong><span class="reviewer-meta">Local Guide · 18
+                  Bewertungen</span></div><img src="https://www.google.com/favicon.ico" alt="Google"
+                class="review-google-icon" width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-            </p>
-            <span class="review-time">vor 2 Wochen</span>
+            <p class="review-text">„Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur."</p><span class="review-time">vor 2 Wochen</span>
           </div>
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #8e44ad;">T</div>
-              <div class="reviewer-info">
-                <strong>Thomas H.</strong>
-                <span class="reviewer-meta">5 Bewertungen</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#8e44ad;">T</div>
+              <div class="reviewer-info"><strong>Thomas H.</strong><span class="reviewer-meta">5 Bewertungen</span>
+              </div><img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum."
-            </p>
-            <span class="review-time">vor 1 Monat</span>
+            <p class="review-text">„Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum."</p><span class="review-time">vor 1 Monat</span>
           </div>
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #e74c3c;">S</div>
-              <div class="reviewer-info">
-                <strong>Sarah K.</strong>
-                <span class="reviewer-meta">Local Guide · 62 Bewertungen</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#e74c3c;">S</div>
+              <div class="reviewer-info"><strong>Sarah K.</strong><span class="reviewer-meta">Local Guide · 62
+                  Bewertungen</span></div><img src="https://www.google.com/favicon.ico" alt="Google"
+                class="review-google-icon" width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam
-              rem aperiam."
-            </p>
-            <span class="review-time">vor 4 Wochen</span>
+            <p class="review-text">„Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+              doloremque laudantium."</p><span class="review-time">vor 4 Wochen</span>
           </div>
-
           <div class="review-card">
             <div class="review-quote-mark" aria-hidden="true">"</div>
             <div class="review-card-header">
-              <div class="reviewer-avatar" style="background: #16a085;">L</div>
-              <div class="reviewer-info">
-                <strong>Laura M.</strong>
-                <span class="reviewer-meta">9 Bewertungen · 3 Fotos</span>
-              </div>
-              <img src="https://www.google.com/favicon.ico" alt="Google" class="review-google-icon" width="16">
+              <div class="reviewer-avatar" style="background:#16a085;">L</div>
+              <div class="reviewer-info"><strong>Laura M.</strong><span class="reviewer-meta">9 Bewertungen · 3
+                  Fotos</span></div><img src="https://www.google.com/favicon.ico" alt="Google"
+                class="review-google-icon" width="16">
             </div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">
-              „Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-              dolores."
-            </p>
-            <span class="review-time">vor 5 Wochen</span>
+            <p class="review-text">„Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+              consequuntur magni dolores."</p><span class="review-time">vor 5 Wochen</span>
           </div>
-
         </div>
-
-        <div class="reviews-cta reveal">
-          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-outline">
-            Alle Bewertungen auf Google <span class="arrow">&#8594;</span>
-          </a>
-        </div>
-
+        <div class="reviews-cta reveal"><a href="https://maps.google.com" target="_blank" rel="noopener"
+            class="btn-outline">Alle Bewertungen auf Google <span class="arrow">&#8594;</span></a></div>
       </div>
     </section>
+
+    <!-- ======================== MARQUEE 2 (reversed) ======================== -->
+    <div class="marquee marquee--reverse" aria-hidden="true">
+      <div class="marquee-inner">
+        <span>Handgemacht</span><span class="marquee-dot">✦</span><span>Levante</span><span
+          class="marquee-dot">✦</span><span>Safran</span><span
+          class="marquee-dot">✦</span><span>Orangenblüte</span><span
+          class="marquee-dot">✦</span><span>Rosenwasser</span><span class="marquee-dot">✦</span><span>Honig</span><span
+          class="marquee-dot">✦</span><span>Filoteig</span><span class="marquee-dot">✦</span><span>Walnuss</span><span
+          class="marquee-dot">✦</span>
+        <span>Handgemacht</span><span class="marquee-dot">✦</span><span>Levante</span><span
+          class="marquee-dot">✦</span><span>Safran</span><span
+          class="marquee-dot">✦</span><span>Orangenblüte</span><span
+          class="marquee-dot">✦</span><span>Rosenwasser</span><span class="marquee-dot">✦</span><span>Honig</span><span
+          class="marquee-dot">✦</span><span>Filoteig</span><span class="marquee-dot">✦</span><span>Walnuss</span><span
+          class="marquee-dot">✦</span>
+      </div>
+    </div>
 
     <!-- ======================== BESTSELLERS ======================== -->
     <section class="section bestsellers" id="bestsellers">
       <div class="container">
-
         <h2 class="section-title reveal"><em>Unsere</em> Bestseller</h2>
-
         <div class="products-grid">
-
-          <article class="product-card reveal">
-            <div class="product-card-img">
-              <img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Baklawa" alt="Pistazien-Baklawa" loading="lazy"
-                decoding="async" width="400" height="280">
-            </div>
+          <article class="product-card reveal" data-cursor="view">
+            <div class="product-card-img"><img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Baklawa"
+                alt="Pistazien-Baklawa" loading="lazy" width="400" height="280"></div>
             <div class="product-card-body">
-              <h3>Pistazien-Baklawa</h3>
-              <span class="collection">Signatur</span>
+              <h3>Pistazien-Baklawa</h3><span class="collection">Signatur</span>
             </div>
           </article>
-
-          <article class="product-card reveal" style="transition-delay: 0.08s">
-            <div class="product-card-img">
-              <img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Mix" alt="Süßigkeiten-Mix" loading="lazy"
-                decoding="async" width="400" height="280">
-            </div>
+          <article class="product-card reveal" data-cursor="view" style="transition-delay:0.08s">
+            <div class="product-card-img"><img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Mix"
+                alt="Süßigkeiten-Mix" loading="lazy" width="400" height="280"></div>
             <div class="product-card-body">
-              <h3>Süßigkeiten-Mix</h3>
-              <span class="collection">Tradition</span>
+              <h3>Süßigkeiten-Mix</h3><span class="collection">Tradition</span>
             </div>
           </article>
-
-          <article class="product-card reveal" style="transition-delay: 0.16s">
-            <div class="product-card-img">
-              <img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Kunafa" alt="Safran-Kunafa" loading="lazy"
-                decoding="async" width="400" height="280">
-            </div>
+          <article class="product-card reveal" data-cursor="view" style="transition-delay:0.16s">
+            <div class="product-card-img"><img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Kunafa"
+                alt="Safran-Kunafa" loading="lazy" width="400" height="280"></div>
             <div class="product-card-body">
-              <h3>Safran-Kunafa</h3>
-              <span class="collection">Saisonal</span>
+              <h3>Safran-Kunafa</h3><span class="collection">Saisonal</span>
             </div>
           </article>
-
-          <article class="product-card reveal" style="transition-delay: 0.24s">
-            <div class="product-card-img">
-              <img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Maamoul" alt="Dattel-Maamoul" loading="lazy"
-                decoding="async" width="400" height="280">
-            </div>
+          <article class="product-card reveal" data-cursor="view" style="transition-delay:0.24s">
+            <div class="product-card-img"><img src="https://placehold.co/400x280/f5f0e8/c9a84c?text=Maamoul"
+                alt="Dattel-Maamoul" loading="lazy" width="400" height="280"></div>
             <div class="product-card-body">
-              <h3>Dattel-Maamoul</h3>
-              <span class="collection">Exklusiv</span>
+              <h3>Dattel-Maamoul</h3><span class="collection">Exklusiv</span>
             </div>
           </article>
-
         </div>
-
-        <div class="bestsellers-cta reveal">
-          <a href="#visit" class="btn-dark">Besuche uns in Wien <span class="arrow">&#8594;</span></a>
-        </div>
-
+        <div class="bestsellers-cta reveal"><a href="#contact" class="btn-dark"><span>Besuche uns in Wien</span> <span
+              class="arrow">&#8594;</span></a></div>
       </div>
     </section>
 
-    <!-- ======================== PROCESS / TRADITION ======================== -->
+    <!-- ======================== TRADITION ======================== -->
     <section class="section about" id="about">
       <div class="container about-inner">
-
         <div class="about-image reveal">
-          <div class="about-image-frame"></div>
-          <img src="https://placehold.co/600x700/e8e0d4/c9a84c?text=Tradition" alt="Handgefertigte Baklawa"
-            loading="lazy" width="600" height="700">
+          <div class="about-image-frame"></div><img src="https://placehold.co/600x700/e8e0d4/c9a84c?text=Tradition"
+            alt="Handgefertigte Baklawa" loading="lazy" width="600" height="700">
         </div>
-
-        <div class="about-text reveal" style="transition-delay: 0.12s">
+        <div class="about-text reveal" style="transition-delay:0.12s">
           <span class="section-label">Unsere Tradition</span>
           <h2 class="section-title">Jede Schicht<br><em>erzählt eine Geschichte</em></h2>
-          <p>
-            Von der sorgfältigen Auswahl der iranischen Pistazien bis zum langsamen
-            Ziehen des hauchdünnen Filoteigs – jedes unserer Konfekte wird mit einer
-            Hingabe gefertigt, die Generationen levantinischer Meister überliefert haben.
-          </p>
-          <p>
-            Was in den Souks von Damaskus begann, lebt heute im Herzen Wiens weiter –
-            authentisch, handgemacht, mit Liebe.
-          </p>
-          <a href="#bestsellers" class="btn-dark">Kreationen entdecken <span class="arrow">&#8594;</span></a>
+          <p>Von der sorgfältigen Auswahl der iranischen Pistazien bis zum langsamen Ziehen des hauchdünnen Filoteigs –
+            jedes unserer Konfekte wird mit einer Hingabe gefertigt, die Generationen levantinischer Meister überliefert
+            haben.</p>
+          <p>Was in den Souks von Damaskus begann, lebt heute im Herzen Wiens weiter – authentisch, handgemacht, mit
+            Liebe.</p>
+          <a href="#bestsellers" class="btn-dark"><span>Kreationen entdecken</span> <span
+              class="arrow">&#8594;</span></a>
         </div>
-
       </div>
     </section>
 
-    <!-- ======================== STORE GALLERY ======================== -->
+    <!-- ======================== GALLERY ======================== -->
     <section class="section gallery" id="gallery">
       <div class="container">
-
-        <div class="gallery-header reveal">
-          <span class="section-label">Besuche uns</span>
+        <div class="gallery-header reveal"><span class="section-label">Besuche uns</span>
           <h2 class="section-title"><em>Unser</em> Store</h2>
           <p class="gallery-sub">Ein Stück Levante im Herzen Wiens – entworfen mit der gleichen Liebe wie unsere
             Süßwaren.</p>
         </div>
-
         <div class="gallery-grid">
-          <div class="gallery-item gallery-item--large reveal">
-            <img src="https://placehold.co/800x500/dce8f0/5b9bd5?text=Innenraum" alt="Store Innenraum" loading="lazy"
-              decoding="async">
+          <div class="gallery-item gallery-item--large reveal" data-cursor="view"><img
+              src="https://placehold.co/800x500/dce8f0/5b9bd5?text=Innenraum" alt="Store Innenraum" loading="lazy">
             <div class="gallery-overlay"><span>Innenraum</span></div>
           </div>
-          <div class="gallery-item reveal" style="transition-delay: 0.08s">
-            <img src="https://placehold.co/400x400/dce8f0/5b9bd5?text=Außen" alt="Außenansicht" loading="lazy"
-              decoding="async">
+          <div class="gallery-item reveal" data-cursor="view" style="transition-delay:0.08s"><img
+              src="https://placehold.co/400x400/dce8f0/5b9bd5?text=Außen" alt="Außenansicht" loading="lazy">
             <div class="gallery-overlay"><span>Außenansicht</span></div>
           </div>
-          <div class="gallery-item reveal" style="transition-delay: 0.16s">
-            <img src="https://placehold.co/400x400/f5f0e8/c9a84c?text=Baklawa" alt="Frische Baklawa" loading="lazy"
-              decoding="async">
+          <div class="gallery-item reveal" data-cursor="view" style="transition-delay:0.16s"><img
+              src="https://placehold.co/400x400/f5f0e8/c9a84c?text=Baklawa" alt="Frische Baklawa" loading="lazy">
             <div class="gallery-overlay"><span>Frische Baklawa</span></div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ======================== DARK FEATURE — Catering / Events ======================== -->
-    <section class="section feature-dark">
-      <div class="container feature-dark-inner">
-
-        <div class="feature-dark-image reveal">
-          <img src="https://placehold.co/800x600/2a1f0e/c9a84c?text=Geschenkbox" alt="Geschenkboxen" loading="lazy"
-            decoding="async" width="800" height="600">
+    <!-- ======================== INSTAGRAM FEED ======================== -->
+    <section class="section instagram-feed" id="instagram">
+      <div class="container">
+        <div class="instagram-header reveal">
+          <span class="section-label">Folge uns</span>
+          <h2 class="section-title"><em>@shamsweets</em> auf Instagram</h2>
+          <p class="instagram-sub">Tägliche Einblicke in unsere Patisserie und frische Kreationen.</p>
         </div>
-
-        <div class="feature-dark-text reveal" style="transition-delay: 0.12s">
-          <span class="section-label section-label--light">Besondere Anlässe</span>
-          <h2 class="section-title"><em>Geschenkboxen</em><br>&amp; Catering</h2>
-          <p>
-            Ob Hochzeit, Firmenfeier oder ein persönliches Geschenk – unsere
-            handgefertigten Boxen werden individuell zusammengestellt und
-            liebevoll verpackt. Jede Box ist ein Stück levantinische Tradition.
-          </p>
-          <a href="#visit" class="btn-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">
-            Anfragen <span class="arrow">&#8594;</span>
+        <div class="instagram-grid">
+          <a href="#" class="instagram-item reveal" data-cursor="view"><img
+              src="https://placehold.co/400x400/f5f0e8/c9a84c?text=1" alt="Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
+          </a>
+          <a href="#" class="instagram-item reveal" data-cursor="view" style="transition-delay:0.05s"><img
+              src="https://placehold.co/400x400/dce8f0/5b9bd5?text=2" alt="Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
+          </a>
+          <a href="#" class="instagram-item reveal" data-cursor="view" style="transition-delay:0.1s"><img
+              src="https://placehold.co/400x400/f5f0e8/c9a84c?text=3" alt="Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
+          </a>
+          <a href="#" class="instagram-item reveal" data-cursor="view" style="transition-delay:0.15s"><img
+              src="https://placehold.co/400x400/dce8f0/5b9bd5?text=4" alt="Instagram" loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
+          </a>
+          <a href="#" class="instagram-item reveal instagram-item--hidden-mobile" data-cursor="view"
+            style="transition-delay:0.2s"><img src="https://placehold.co/400x400/f5f0e8/c9a84c?text=5" alt="Instagram"
+              loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
+          </a>
+          <a href="#" class="instagram-item reveal instagram-item--hidden-mobile" data-cursor="view"
+            style="transition-delay:0.25s"><img src="https://placehold.co/400x400/dce8f0/5b9bd5?text=6" alt="Instagram"
+              loading="lazy">
+            <div class="instagram-overlay"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff"
+                stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1.5" fill="#fff" stroke="none" />
+              </svg></div>
           </a>
         </div>
-
       </div>
     </section>
 
 
-  </main>
-
-  <!-- ======================== FOOTER / KONTAKT ======================== -->
-  <footer class="footer" id="visit">
-    <div class="container">
-
-      <div class="footer-newsletter-row reveal">
-        <div class="footer-newsletter-text">
-          <h2 class="section-title"><em>Süße Neuigkeiten</em><br>direkt zu dir</h2>
-          <p class="footer-newsletter-sub">Erhalte als Erste/r neue Kreationen und exklusive Angebote.</p>
-        </div>
-        <form class="newsletter-form" onsubmit="handleNewsletter(event)" novalidate>
-          <input type="email" placeholder="Ihre E-Mail-Adresse" aria-label="E-Mail" required>
-          <button type="submit" aria-label="Abonnieren">&#8594;</button>
-        </form>
-      </div>
-
-      <div class="footer-divider"></div>
-
-      <div class="footer-grid">
-
-        <div class="footer-col footer-col--brand">
-          <div class="footer-logo">Sham Sweets</div>
-          <p class="footer-tagline">Erstklassige arabische Patisserie<br>handgefertigt in Wien.</p>
-          <address>
-            Gumpendorfer Straße, 1060 Wien
-          </address>
-          <p style="margin-top:8px;">
-            <a href="https://maps.google.com/?q=Sham+Sweets+Wien" target="_blank" rel="noopener"
-              class="footer-maps-link">
-              📍 Auf Google Maps öffnen
-            </a>
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Folge uns</h4>
-          <a href="#" target="_blank">Instagram</a>
-          <a href="#" target="_blank">TikTok</a>
-          <a href="#" target="_blank">X (Twitter)</a>
-        </div>
-
-        <div class="footer-col">
-          <h4>Öffnungszeiten</h4>
-          <div class="hours-grid">
-            <span>Mo – So: 10:00 – 22:00</span>
-            <span class="open-now">🟢 Heute bis 22:00 Uhr geöffnet</span>
+    <!-- ======================== CONTACT FORM ======================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="contact-info reveal">
+            <span class="section-label">Kontakt</span>
+            <h2 class="section-title">Schreib uns<br><em>eine Nachricht</em></h2>
+            <p>Ob Fragen zu unseren Kreationen oder Bestellungen – wir freuen uns von dir zu hören.</p>
+            <div class="contact-details">
+              <div class="contact-detail"><span class="contact-detail-icon">📍</span>
+                <div><strong>Adresse</strong><span>Gumpendorfer Straße, 1060 Wien</span></div>
+              </div>
+              <div class="contact-detail"><span class="contact-detail-icon">🕐</span>
+                <div><strong>Öffnungszeiten</strong><span>Mo – So: 10:00 – 22:00</span></div>
+              </div>
+              <div class="contact-detail"><span class="contact-detail-icon">📱</span>
+                <div><strong>WhatsApp</strong><span>Schreib uns direkt für Bestellungen</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-wrap reveal" style="transition-delay:0.12s">
+            <div class="contact-form-card">
+              <div class="contact-form-body">
+                <div class="form-row">
+                  <div class="form-group"><label for="cf-name">Name</label><input type="text" id="cf-name"
+                      placeholder="Ihr Name" required></div>
+                  <div class="form-group"><label for="cf-email">E-Mail</label><input type="email" id="cf-email"
+                      placeholder="ihre@email.at" required></div>
+                </div>
+                <div class="form-group"><label for="cf-subject">Betreff</label><select id="cf-subject">
+                    <option value="">Bitte wählen…</option>
+                    <option value="bestellung">Bestellung</option>
+                    <option value="allgemein">Allgemeine Frage</option>
+                  </select></div>
+                <div class="form-group"><label for="cf-message">Nachricht</label><textarea id="cf-message" rows="4"
+                    placeholder="Ihre Nachricht…" required></textarea></div>
+                <button type="button" class="btn-dark btn-submit" onclick="handleContactForm()"><span>Nachricht
+                    senden</span> <span class="arrow">&#8594;</span></button>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
+    </section>
+  </main>
 
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" id="visit">
+    <div class="container">
+      <div class="footer-main">
+        <address>Gumpendorfer Straße, 1060 Wien · <a href="https://maps.google.com/?q=Sham+Sweets+Wien" target="_blank"
+            rel="noopener" class="footer-maps-link">Google Maps</a></address>
+        <span class="footer-hours">Mo–So 10:00–22:00 <span class="open-now">· Heute geöffnet</span></span>
+        <div class="footer-social">
+          <a href="#" target="_blank" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" target="_blank" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.73a8.19 8.19 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.16z" />
+            </svg></a>
+          <a href="#" target="_blank" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a>
+        </div>
+      </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Sham Sweets.</p>
-        <p>Gefertigt in levantinischer Tradition · Wien, Österreich</p>
+        <p>&copy; 2026 Sham Sweets · Wien, Österreich</p>
       </div>
-
     </div>
   </footer>
+
+  <!-- ======================== WHATSAPP FLOAT ======================== -->
+  <a href="https://wa.me/43XXXXXXXXXX?text=Hallo%20Sham%20Sweets!%20Ich%20möchte%20gerne%20bestellen."
+    class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Bestellung">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff">
+      <path
+        d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.132 6.742 3.054 9.378L1.054 31.07l5.918-1.958A15.907 15.907 0 0016.004 32C24.826 32 32 24.826 32 16.004 32 7.176 24.826 0 16.004 0zm9.32 22.614c-.39 1.1-2.286 2.1-3.152 2.164-.792.058-1.764.082-2.846-.18a26.167 26.167 0 01-2.578-.954c-4.536-1.96-7.496-6.562-7.724-6.868-.228-.306-1.862-2.478-1.862-4.726s1.18-3.354 1.598-3.812c.418-.458.912-.572 1.216-.572.304 0 .608.002.874.016.28.014.658-.106.93.71.39.904 1.162 2.836 1.264 3.04.102.206.17.446.034.718-.136.272-.204.442-.408.68-.204.238-.43.532-.614.714-.204.204-.416.426-.178.836.238.41 1.058 1.748 2.272 2.832 1.562 1.394 2.878 1.826 3.288 2.032.41.206.65.172.888-.104.238-.272 1.022-1.19 1.294-1.598.272-.41.544-.34.912-.204.37.136 2.344 1.106 2.744 1.306.41.206.682.306.782.476.102.17.102.986-.288 2.086z" />
+    </svg>
+    <span class="whatsapp-tooltip">Bestellen via WhatsApp</span>
+  </a>
 
   <script src="script.js" defer></script>
 </body>

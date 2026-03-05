@@ -1,6 +1,6 @@
 /* ================================================================
    SHAM SWEETS — Premium Levantine Patisserie
-   Enhanced JavaScript
+   Enhanced JavaScript v2
    ================================================================ */
 
 'use strict';
@@ -9,15 +9,9 @@
 (function () {
   var preloader = document.getElementById('preloader');
   window.addEventListener('load', function () {
-    setTimeout(function () {
-      preloader.classList.add('done');
-    }, 800);
+    setTimeout(function () { preloader.classList.add('done'); }, 800);
   });
-
-  /* Safety fallback — never show preloader more than 3s */
-  setTimeout(function () {
-    preloader.classList.add('done');
-  }, 3000);
+  setTimeout(function () { preloader.classList.add('done'); }, 3000);
 })();
 
 /* --- Scroll progress bar --- */
@@ -26,8 +20,7 @@
   window.addEventListener('scroll', function () {
     var scrollTop = window.scrollY;
     var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var progress = (scrollTop / docHeight) * 100;
-    bar.style.width = progress + '%';
+    bar.style.width = (scrollTop / docHeight) * 100 + '%';
   }, { passive: true });
 })();
 
@@ -68,13 +61,12 @@
   });
 
   drawer.addEventListener('click', function (e) {
-    if (e.target === drawer || e.target.classList.contains('mobile-drawer-content') === false) close();
+    if (e.target === drawer) close();
   });
 
   document.addEventListener('click', function (e) {
     if (drawer.classList.contains('open') &&
-      !btn.contains(e.target) &&
-      !drawer.contains(e.target)) {
+      !btn.contains(e.target) && !drawer.contains(e.target)) {
       close();
     }
   });
@@ -84,7 +76,7 @@
   });
 })();
 
-/* --- Scroll reveal (IntersectionObserver) with stagger --- */
+/* --- Scroll reveal (IntersectionObserver) --- */
 (function () {
   var els = document.querySelectorAll('.reveal');
 
@@ -105,7 +97,7 @@
   els.forEach(function (el) { observer.observe(el); });
 })();
 
-/* --- Smooth scroll for anchor links --- */
+/* --- Smooth scroll --- */
 (function () {
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
@@ -121,9 +113,7 @@
 /* --- Hero parallax --- */
 (function () {
   var heroBg = document.querySelector('.hero-bg-img');
-  if (!heroBg) return;
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!heroBg || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var ticking = false;
   window.addEventListener('scroll', function () {
@@ -140,33 +130,59 @@
   }, { passive: true });
 })();
 
-/* --- Newsletter visual feedback --- */
-function handleNewsletter(e) {
-  e.preventDefault();
-  var input = e.target.querySelector('input');
-  var button = e.target.querySelector('button');
-  var orig = button.innerHTML;
+/* --- (custom cursor removed) --- */
 
-  button.innerHTML = '&#10003;';
-  button.disabled = true;
-  button.style.background = '#1a8a1a';
-  input.value = '';
+/* --- (newsletter removed — contact form covers this) --- */
+
+/* --- Contact form feedback --- */
+function handleContactForm() {
+  var name = document.getElementById('cf-name');
+  var email = document.getElementById('cf-email');
+  var message = document.getElementById('cf-message');
+  var btn = document.querySelector('.btn-submit');
+
+  /* Simple validation */
+  if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
+    /* Highlight empty fields */
+    [name, email, message].forEach(function (field) {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#e74c3c';
+        field.style.boxShadow = '0 0 0 3px rgba(231, 76, 60, 0.15)';
+        setTimeout(function () {
+          field.style.borderColor = '';
+          field.style.boxShadow = '';
+        }, 2000);
+      }
+    });
+    return;
+  }
+
+  /* Success state */
+  var origHTML = btn.innerHTML;
+  btn.innerHTML = '<span>✓ Gesendet!</span>';
+  btn.classList.add('success');
+  btn.disabled = true;
+
+  /* Clear form */
+  name.value = '';
+  email.value = '';
+  message.value = '';
+  var subject = document.getElementById('cf-subject');
+  if (subject) subject.selectedIndex = 0;
 
   setTimeout(function () {
-    button.innerHTML = orig;
-    button.disabled = false;
-    button.style.background = '';
+    btn.innerHTML = origHTML;
+    btn.classList.remove('success');
+    btn.disabled = false;
   }, 3000);
 }
 
-/* --- Reviews carousel — mouse drag to scroll --- */
+/* --- Reviews carousel — drag to scroll --- */
 (function () {
   var carousel = document.querySelector('.reviews-carousel');
   if (!carousel) return;
 
-  var isDown = false;
-  var startX = 0;
-  var scrollLeft = 0;
+  var isDown = false, startX = 0, scrollLeft = 0;
 
   carousel.addEventListener('mousedown', function (e) {
     isDown = true;
@@ -176,21 +192,18 @@ function handleNewsletter(e) {
 
   carousel.addEventListener('mouseleave', function () { isDown = false; });
   carousel.addEventListener('mouseup', function () { isDown = false; });
-
   carousel.addEventListener('mousemove', function (e) {
     if (!isDown) return;
     e.preventDefault();
     var x = e.pageX - carousel.offsetLeft;
-    var walk = (x - startX) * 1.5;
-    carousel.scrollLeft = scrollLeft - walk;
+    carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
   });
 })();
 
-/* --- Active nav link highlight on scroll --- */
+/* --- Active nav link highlight --- */
 (function () {
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.nav-links a');
-
   if (!sections.length || !navLinks.length) return;
 
   var observer = new IntersectionObserver(function (entries) {
@@ -207,7 +220,5 @@ function handleNewsletter(e) {
     });
   }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
 
-  sections.forEach(function (section) {
-    observer.observe(section);
-  });
+  sections.forEach(function (section) { observer.observe(section); });
 })();
