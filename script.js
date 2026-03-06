@@ -76,9 +76,9 @@
   });
 })();
 
-/* --- Scroll reveal (IntersectionObserver) --- */
+/* --- Scroll reveal (IntersectionObserver) — handles all variants --- */
 (function () {
-  var els = document.querySelectorAll('.reveal');
+  var els = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale, .section-divider');
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     els.forEach(function (el) { el.classList.add('visible'); });
@@ -132,6 +132,26 @@
 
 /* --- (custom cursor removed) --- */
 
+/* --- Lazy video playback — only play when in viewport --- */
+(function () {
+  var videos = document.querySelectorAll('.instagram-item video');
+  if (!videos.length) return;
+
+  videos.forEach(function (v) { v.pause(); });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.play().catch(function () { });
+      } else {
+        entry.target.pause();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  videos.forEach(function (v) { observer.observe(v); });
+})();
+
 /* --- (newsletter removed — contact form covers this) --- */
 
 /* --- Contact form feedback --- */
@@ -177,15 +197,58 @@ function handleContactForm() {
   }, 3000);
 }
 
-/* --- Reviews carousel — drag to scroll --- */
+/* --- Reviews carousel — auto-scroll + drag + pause on hover --- */
 (function () {
-  var carousel = document.querySelector('.reviews-carousel');
+  var carousel = document.getElementById('reviewsCarousel');
   if (!carousel) return;
 
+  /* Stagger animation: only start when section is visible */
+  var cards = carousel.querySelectorAll('.review-card');
+  cards.forEach(function (card) { card.style.animationPlayState = 'paused'; });
+
+  var sectionObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        cards.forEach(function (card) { card.style.animationPlayState = 'running'; });
+        startAutoScroll();
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  var reviewsSection = document.querySelector('.reviews');
+  if (reviewsSection) sectionObserver.observe(reviewsSection);
+
+  /* Auto-scroll */
+  var scrollInterval = null;
+  var isPaused = false;
+
+  function startAutoScroll() {
+    scrollInterval = setInterval(function () {
+      if (isPaused) return;
+      var maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      if (carousel.scrollLeft >= maxScroll - 5) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: 290, behavior: 'smooth' });
+      }
+    }, 3500);
+  }
+
+  /* Pause on hover & touch */
+  carousel.addEventListener('mouseenter', function () { isPaused = true; });
+  carousel.addEventListener('mouseleave', function () { isPaused = false; });
+  carousel.addEventListener('touchstart', function () { isPaused = true; }, { passive: true });
+  carousel.addEventListener('touchend', function () {
+    setTimeout(function () { isPaused = false; }, 4000);
+  });
+
+  /* Drag to scroll */
   var isDown = false, startX = 0, scrollLeft = 0;
 
   carousel.addEventListener('mousedown', function (e) {
     isDown = true;
+    isPaused = true;
     startX = e.pageX - carousel.offsetLeft;
     scrollLeft = carousel.scrollLeft;
   });
@@ -199,6 +262,40 @@ function handleContactForm() {
     carousel.scrollLeft = scrollLeft - (x - startX) * 1.5;
   });
 })();
+
+/* --- Lightbox for gallery --- */
+function openLightbox(el) {
+  var img = el.querySelector('img');
+  var caption = el.querySelector('.gallery-overlay span');
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightboxImg');
+  var lightboxCaption = document.getElementById('lightboxCaption');
+
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightboxCaption.textContent = caption ? caption.textContent : '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  /* Don't close when clicking the image itself */
+  if (e.target.tagName === 'IMG') return;
+  var lightbox = document.getElementById('lightbox');
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Close lightbox on Escape */
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    var lightbox = document.getElementById('lightbox');
+    if (lightbox.classList.contains('open')) {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+});
 
 /* --- Active nav link highlight --- */
 (function () {

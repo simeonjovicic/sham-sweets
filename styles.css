@@ -772,20 +772,19 @@ button {
 .sham-story-inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
   position: relative;
   z-index: 1;
 }
 
 .sham-story-left .section-title {
-  margin-bottom: 0;
+  margin-bottom: 24px;
 }
 
 .sham-meaning {
   display: flex;
   gap: 24px;
   align-items: center;
-  margin-bottom: 32px;
   padding: 24px;
   background: var(--white);
   border-radius: 16px;
@@ -825,13 +824,41 @@ button {
 .sham-story-right p {
   font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.85;
-  margin-bottom: 16px;
-  max-width: 520px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  max-width: 560px;
 }
 
 .sham-story-right p strong {
   color: var(--text);
+  font-weight: 600;
+}
+
+/* Signature closing line — hero statement */
+.sham-signature {
+  margin-top: 32px;
+  padding-top: 28px;
+  position: relative;
+  max-width: 560px;
+}
+
+.sham-signature-line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  margin-bottom: 20px;
+  border-radius: 2px;
+}
+
+.sham-signature em {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-dark);
+  line-height: 1.35;
+  display: block;
 }
 
 .sham-arches {
@@ -884,7 +911,7 @@ button {
   }
 }
 
-/* REVIEWS */
+/* REVIEWS — enhanced with animations */
 .reviews {
   background: var(--bg);
 }
@@ -900,6 +927,7 @@ button {
   margin-bottom: 0;
 }
 
+/* Animated rating badge with shimmer */
 .google-rating-badge {
   display: inline-flex;
   align-items: center;
@@ -910,10 +938,33 @@ button {
   padding: 8px 20px;
   width: fit-content;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.google-rating-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.12), transparent);
+  animation: badgeShimmer 3s var(--ease) infinite;
+}
+
+@keyframes badgeShimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
 }
 
 .google-rating-badge .rating-number {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--black);
 }
@@ -928,16 +979,18 @@ button {
   color: var(--text-muted);
 }
 
+/* Carousel — auto-scrolling */
 .reviews-carousel {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
+  scroll-behavior: smooth;
 }
 
 .reviews-carousel:active {
@@ -949,26 +1002,65 @@ button {
 }
 
 .reviews-carousel .review-card {
-  flex: 0 0 300px;
+  flex: 0 0 260px;
   scroll-snap-align: start;
 }
 
 @media (min-width: 768px) {
   .reviews-carousel .review-card {
-    flex: 0 0 340px;
+    flex: 0 0 280px;
   }
 }
 
+/* Cards — compact Google-style */
 .review-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  transition: box-shadow 0.35s var(--ease), transform 0.35s var(--ease);
+  border-radius: 12px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  animation: reviewCardIn 0.6s var(--ease-out) forwards;
 }
 
+.review-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.review-card:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+.review-card:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+.review-card:nth-child(4) {
+  animation-delay: 0.34s;
+}
+
+.review-card:nth-child(5) {
+  animation-delay: 0.42s;
+}
+
+.review-card:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.review-card:nth-child(n+7) {
+  animation-delay: 0.55s;
+}
+
+@keyframes reviewCardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Top gradient line — animated on hover */
 .review-card::before {
   content: '';
   position: absolute;
@@ -976,45 +1068,69 @@ button {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--gold));
+  background: linear-gradient(90deg, var(--blue), var(--gold), var(--blue));
+  background-size: 200% 100%;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .review-card:hover::before {
   opacity: 1;
+  animation: reviewGradientShift 2s linear infinite;
+}
+
+@keyframes reviewGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Hover lift */
+.review-card {
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
 }
 
 .review-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
   transform: translateY(-4px);
 }
 
+/* Animated quote mark */
 .review-quote-mark {
   font-family: var(--font-display);
-  font-size: 4rem;
+  font-size: 3rem;
   color: var(--blue);
-  opacity: 0.15;
-  line-height: 0.8;
-  margin-bottom: -8px;
+  opacity: 0.1;
+  line-height: 0.6;
+  margin-bottom: -2px;
+  transition: opacity 0.3s, transform 0.3s var(--ease-spring);
+}
+
+.review-card:hover .review-quote-mark {
+  opacity: 0.2;
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .review-card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .reviewer-avatar {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #fff;
   flex-shrink: 0;
 }
@@ -1025,37 +1141,37 @@ button {
 
 .reviewer-info strong {
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--black);
 }
 
 .reviewer-meta {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
 }
 
 .review-google-icon {
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .review-stars {
   color: var(--gold);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .review-text {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   color: var(--text);
-  line-height: 1.75;
-  margin-bottom: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
 .review-time {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
 }
 
@@ -1140,83 +1256,6 @@ button {
   .products-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-  }
-}
-
-/* ABOUT */
-.about {
-  background: var(--bg);
-  content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
-}
-
-.about-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.about-image {
-  position: relative;
-}
-
-.about-image img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.about-image-frame {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  width: 60%;
-  height: 60%;
-  border: 2px solid var(--blue);
-  border-radius: 12px;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: -1;
-}
-
-.about-text .section-label {
-  margin-bottom: 12px;
-}
-
-.about-text .section-title {
-  margin-bottom: 24px;
-}
-
-.about-text p {
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.85;
-  margin-bottom: 16px;
-  max-width: 520px;
-}
-
-.about-text p:last-of-type {
-  margin-bottom: 32px;
-}
-
-@media (min-width: 768px) {
-  .about-inner {
-    flex-direction: row;
-    align-items: center;
-    gap: 80px;
-  }
-
-  .about-image {
-    flex: 0 0 48%;
-  }
-
-  .about-image img {
-    height: 520px;
-  }
-
-  .about-text {
-    flex: 1;
   }
 }
 
@@ -1314,6 +1353,82 @@ button {
   .gallery-item {
     aspect-ratio: 1;
   }
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease), visibility 0.4s;
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.25s, background 0.25s;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transform: scale(0.92) translateY(16px);
+  transition: transform 0.45s var(--ease-out);
+  cursor: default;
+}
+
+.lightbox.open .lightbox-content {
+  transform: scale(1) translateY(0);
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 78vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 
 /* DARK FEATURE */
@@ -1470,7 +1585,7 @@ button {
   }
 }
 
-/* SCROLL REVEAL */
+/* SCROLL REVEAL — multiple variants */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -1480,6 +1595,205 @@ button {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Reveal from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Reveal with scale */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animated section divider line */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--gold));
+  margin: 0 auto 48px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.8s var(--ease-out) 0.2s;
+}
+
+.section-divider.visible {
+  transform: scaleX(1);
+}
+
+/* Gallery items — tilt on hover */
+.gallery-item {
+  transition: transform 0.5s var(--ease);
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Product cards — animated border glow on hover */
+.product-card {
+  position: relative;
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(135deg, var(--blue), var(--gold));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.product-card:hover::after {
+  opacity: 0.3;
+}
+
+/* Navbar links — stagger fade in on load */
+.nav-links li {
+  opacity: 0;
+  animation: navLinkIn 0.5s var(--ease-out) forwards;
+}
+
+.nav-links li:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+.nav-links li:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.nav-links li:nth-child(3) {
+  animation-delay: 1.0s;
+}
+
+.nav-links li:nth-child(4) {
+  animation-delay: 1.1s;
+}
+
+.nav-links li:nth-child(5) {
+  animation-delay: 1.2s;
+}
+
+.nav-links li:nth-child(6) {
+  animation-delay: 1.3s;
+}
+
+@keyframes navLinkIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Logo breathing dot */
+.logo-dot {
+  animation: logoDotPulse 3s var(--ease) infinite;
+}
+
+@keyframes logoDotPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.4);
+  }
+}
+
+/* WhatsApp button entrance */
+.whatsapp-float {
+  opacity: 0;
+  animation: whatsappIn 0.6s var(--ease-out) 2s forwards;
+}
+
+@keyframes whatsappIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Instagram grid — stagger */
+.instagram-item:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.instagram-item:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+.instagram-item:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.instagram-item:nth-child(4) {
+  transition-delay: 0.18s;
+}
+
+.instagram-item:nth-child(5) {
+  transition-delay: 0.24s;
+}
+
+.instagram-item:nth-child(6) {
+  transition-delay: 0.3s;
+}
+
+/* Arch animation — subtle sway */
+.sham-arches .arch {
+  animation: archSway 4s ease-in-out infinite;
+}
+
+.sham-arches .arch:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.sham-arches .arch:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.sham-arches .arch:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+@keyframes archSway {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 /* REDUCED MOTION */
@@ -1493,6 +1807,8 @@ button {
   }
 
   .reveal,
+  .reveal-left,
+  .reveal-scale,
   .hero-word {
     opacity: 1;
     transform: none;
@@ -1500,6 +1816,23 @@ button {
 
   .hero-sub,
   .hero-bottom {
+    opacity: 1;
+  }
+
+  .section-divider {
+    transform: scaleX(1);
+  }
+
+  .review-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav-links li {
+    opacity: 1;
+  }
+
+  .whatsapp-float {
     opacity: 1;
   }
 }
@@ -1597,7 +1930,7 @@ button {
 }
 
 /* ================================================================
-   INSTAGRAM FEED
+   INSTAGRAM FEED — bento grid with video support
    ================================================================ */
 .instagram-feed {
   background: var(--blue-lighter);
@@ -1625,40 +1958,48 @@ button {
 
 .instagram-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 600px;
 }
 
 .instagram-item {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  aspect-ratio: 1;
+  border-radius: 10px;
   display: block;
 }
 
-.instagram-item--hidden-mobile {
-  display: none;
+/* Video spans both rows = full height left side */
+.instagram-item--tall {
+  grid-row: 1 / -1;
 }
 
-.instagram-item img {
+.instagram-item img,
+.instagram-item video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s var(--ease);
 }
 
-.instagram-item:hover img {
-  transform: scale(1.08);
+.instagram-item:hover img,
+.instagram-item:hover video {
+  transform: scale(1.06);
 }
 
 .instagram-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(91, 155, 213, 0.5);
+  background: rgba(91, 155, 213, 0.4);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   opacity: 0;
   transition: opacity 0.35s var(--ease);
 }
@@ -1667,14 +2008,25 @@ button {
   opacity: 1;
 }
 
+/* Play indicator for videos */
+.instagram-play {
+  color: #fff;
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
 @media (min-width: 768px) {
   .instagram-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
-  }
-
-  .instagram-item--hidden-mobile {
-    display: block;
+    grid-template-columns: 1.2fr 1fr;
+    height: 640px;
+    gap: 14px;
   }
 }
 
