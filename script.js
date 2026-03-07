@@ -319,3 +319,90 @@ document.addEventListener('keydown', function (e) {
 
   sections.forEach(function (section) { observer.observe(section); });
 })();
+
+/* --- Review card expand / collapse --- */
+(function () {
+  /* Run after DOM is ready */
+  function initExpandButtons() {
+    document.querySelectorAll('.review-card').forEach(function (card) {
+      var textEl = card.querySelector('.review-text');
+      if (!textEl) return;
+
+      /* Check if text overflows (is actually clamped) */
+      var isClamped = textEl.scrollHeight > textEl.clientHeight + 2;
+      if (!isClamped) return;     /* Short text — no button needed */
+
+      var btn = document.createElement('button');
+      btn.className = 'review-expand-btn';
+      btn.textContent = 'Mehr lesen ↓';
+      btn.setAttribute('aria-expanded', 'false');
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();      /* Don't trigger drag */
+        var expanded = textEl.classList.toggle('expanded');
+        btn.textContent = expanded ? 'Weniger ↑' : 'Mehr lesen ↓';
+        btn.setAttribute('aria-expanded', String(expanded));
+      });
+
+      /* Insert button between text and review-time */
+      var timeEl = card.querySelector('.review-time');
+      if (timeEl) {
+        card.insertBefore(btn, timeEl);
+      } else {
+        card.appendChild(btn);
+      }
+    });
+  }
+
+  /* Wait for review card animations to settle before measuring */
+  if (document.readyState === 'complete') {
+    setTimeout(initExpandButtons, 600);
+  } else {
+    window.addEventListener('load', function () {
+      setTimeout(initExpandButtons, 600);
+    });
+  }
+})();
+
+
+/* --- Dynamic opening hours badge --- */
+(function () {
+  function updateOpenStatus() {
+    /* Store is open Mo–So 10:00–22:00 (Vienna time, UTC+1/+2) */
+    var now = new Date();
+    /* Get Vienna local time */
+    var viennaStr = now.toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
+    var vienna = new Date(viennaStr);
+    var hour = vienna.getHours();
+    var minute = vienna.getMinutes();
+    /* All 7 days, 10:00–22:00 */
+    var OPEN_HOUR = 10;
+    var CLOSE_HOUR = 22;
+    var isOpen = (hour > OPEN_HOUR || (hour === OPEN_HOUR && minute >= 0)) &&
+      (hour < CLOSE_HOUR);
+
+    var badges = document.querySelectorAll('.open-now');
+    badges.forEach(function (badge) {
+      if (isOpen) {
+        var minsToClose = (CLOSE_HOUR - hour - 1) * 60 + (60 - minute);
+        if (minsToClose <= 60) {
+          /* Less than 1 hour left */
+          badge.textContent = '· Schließt in ' + minsToClose + ' Min ⚠️';
+          badge.style.color = '#e07b00';
+        } else {
+          badge.textContent = '· Heute geöffnet';
+          badge.style.color = '';           /* green from CSS */
+        }
+      } else {
+        /* Work out next opening */
+        var nextOpen = hour < OPEN_HOUR ? 'Heute um 10:00 Uhr' : 'Morgen um 10:00 Uhr';
+        badge.textContent = '· Jetzt geschlossen – ' + nextOpen;
+        badge.style.color = '#c0392b';
+      }
+    });
+  }
+
+  updateOpenStatus();
+  /* Re-check every 60 seconds */
+  setInterval(updateOpenStatus, 60000);
+})();
