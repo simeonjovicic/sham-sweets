@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Impressum – Sham Sweets, Arabische Patisserie in Wien.">
+  <title>Impressum – Sham Sweets</title>
+
+  <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Grain texture overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><img src="/assets/images/logo.png" alt="Sham Sweets" class="logo-img" width="22" height="34">Sham Sweets</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="index.html#sham-story">Über uns</a></li>
+        <li><a href="index.html#bestsellers">Kreationen</a></li>
+        <li><a href="index.html#gallery">Store</a></li>
+        <li><a href="index.html#reviews">Bewertungen</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-content">
+      <a href="index.html">Startseite</a>
+      <a href="index.html#sham-story">Über uns</a>
+      <a href="index.html#bestsellers">Kreationen</a>
+      <a href="index.html#gallery">Store</a>
+      <a href="index.html#reviews">Bewertungen</a>
+    </div>
+  </div>
+
+  <main>
+    <section class="section impressum-page">
+      <div class="container">
+
+        <div class="impressum-content">
+          <span class="section-label">Rechtliches</span>
+          <h1 class="section-title" style="margin-bottom: 40px;">Impressum</h1>
+
+          <div class="impressum-block">
+            <h2>Angaben gemäß § 5 ECG</h2>
+            <p>
+              Sham Sweets<br>
+              Gumpendorfer Straße<br>
+              1060 Wien, Österreich
+            </p>
+          </div>
+
+          <div class="impressum-block">
+            <h2>Inhaber</h2>
+            <p>
+              Abdullah Alhelal
+            </p>
+          </div>
+
+          <div class="impressum-block">
+            <h2>Kontakt</h2>
+            <p>
+              Instagram: <a href="https://www.instagram.com/sham___sweets/" target="_blank" rel="noopener">@sham___sweets</a>
+            </p>
+          </div>
+
+          <div class="impressum-block">
+            <h2>Haftungsausschluss</h2>
+            <p>
+              Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung
+              für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten
+              sind ausschließlich deren Betreiber verantwortlich.
+            </p>
+          </div>
+
+          <div class="impressum-block">
+            <h2>Urheberrecht</h2>
+            <p>
+              Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen
+              Seiten unterliegen dem österreichischen Urheberrecht. Die Vervielfältigung,
+              Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen
+              des Urheberrechtes bedürfen der schriftlichen Zustimmung des Erstellers.
+            </p>
+          </div>
+
+          <div style="margin-top: 48px;">
+            <a href="index.html" class="btn-dark"><span>← Zurück zur Startseite</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 Sham Sweets &nbsp;&nbsp;|&nbsp;&nbsp; <a href="impressum.html" class="footer-legal-link">Impressum</a> &nbsp;&nbsp;|&nbsp;&nbsp; Made by <a href="https://hango.at" target="_blank" rel="noopener" style="text-decoration: underline; color: var(--gold);">hango.at</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Minimal JS for impressum page — just hamburger */
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function toggle() {
+        var isOpen = drawer.classList.toggle('open');
+        btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+      btn.addEventListener('click', function (e) { e.stopPropagation(); toggle(); });
+      drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { if (drawer.classList.contains('open')) toggle(); }); });
+    })();
+  </script>
+</body>
+
+</html>

@@ -138,16 +138,20 @@ button {
 
 .preloader-inner {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .preloader-text {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--black);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
   display: block;
   margin-bottom: 16px;
-  animation: preloaderFadeIn 0.8s var(--ease) both;
+  animation: preloaderFadeIn 0.8s var(--ease) 0.4s both;
 }
 
 .preloader-line {
@@ -227,21 +231,49 @@ button {
 
 .logo {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.01em;
   transition: color 0.4s var(--ease);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.logo-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: var(--gold);
-  border-radius: 50%;
-  margin-left: 2px;
-  vertical-align: super;
+.logo-img {
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(3) saturate(0);
+  transition: transform 0.3s var(--ease), filter 0.5s var(--ease);
+}
+
+.navbar.scrolled .logo-img {
+  filter: brightness(1) saturate(1);
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.06);
+}
+
+/* Preloader logo — centered above text */
+.preloader-logo {
+  display: block;
+  margin: 0 auto 20px;
+  object-fit: contain;
+  animation: preloaderLogoIn 1s var(--ease) both;
+}
+
+@keyframes preloaderLogoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .nav-links {
@@ -1763,32 +1795,15 @@ button {
   }
 }
 
-/* Logo breathing dot */
-.logo-dot {
-  animation: logoDotPulse 3s var(--ease) infinite;
-}
-
-@keyframes logoDotPulse {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.5;
-    transform: scale(1.4);
-  }
-}
+/* Logo hover animation handled in .logo-img */
 
 /* WhatsApp button entrance */
-.whatsapp-float {
+.findus-float {
   opacity: 0;
-  animation: whatsappIn 0.6s var(--ease-out) 2s forwards;
+  animation: findusIn 0.6s var(--ease-out) 2s forwards;
 }
 
-@keyframes whatsappIn {
+@keyframes findusIn {
   from {
     opacity: 0;
     transform: scale(0.5) translateY(20px);
@@ -1890,7 +1905,7 @@ button {
     opacity: 1;
   }
 
-  .whatsapp-float {
+  .findus-float {
     opacity: 1;
   }
 }
@@ -2017,9 +2032,8 @@ button {
 .instagram-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 10px;
-  height: 600px;
 }
 
 .instagram-item {
@@ -2029,12 +2043,28 @@ button {
   display: block;
 }
 
-/* Video spans both rows = full height left side */
+/* Mobile: video spans full width on top row */
 .instagram-item--tall {
-  grid-row: 1 / -1;
+  grid-column: 1 / -1;
+  aspect-ratio: 9 / 12;
+  max-height: 480px;
 }
 
-.instagram-item img,
+/* Photos are square */
+.instagram-item:not(.instagram-item--tall) {
+  aspect-ratio: 1;
+}
+
+.instagram-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+/* Video: cover to fill, no black bars */
 .instagram-item video {
   position: absolute;
   inset: 0;
@@ -2082,9 +2112,22 @@ button {
 
 @media (min-width: 768px) {
   .instagram-grid {
-    grid-template-columns: 1.2fr 1fr;
-    height: 640px;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 14px;
+    height: 620px;
+  }
+
+  /* Desktop: video spans both rows on left */
+  .instagram-item--tall {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    aspect-ratio: unset;
+    max-height: unset;
+  }
+
+  .instagram-item:not(.instagram-item--tall) {
+    aspect-ratio: unset;
   }
 }
 
@@ -2257,38 +2300,38 @@ button {
 /* ================================================================
    WHATSAPP FLOATING BUTTON
    ================================================================ */
-.whatsapp-float {
+.findus-float {
   position: fixed;
   bottom: 28px;
   right: 28px;
   width: 60px;
   height: 60px;
-  background: #25D366;
+  background: var(--blue);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 20px rgba(91, 155, 213, 0.35);
   z-index: 90;
   transition: transform 0.35s var(--ease-spring), box-shadow 0.3s;
 }
 
-.whatsapp-float:hover {
+.findus-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+  box-shadow: 0 6px 28px rgba(91, 155, 213, 0.5);
 }
 
 /* Pulse ring animation */
-.whatsapp-float::before {
+.findus-float::before {
   content: '';
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 2px solid rgba(37, 211, 102, 0.4);
-  animation: whatsappPulse 2s var(--ease) infinite;
+  border: 2px solid rgba(91, 155, 213, 0.4);
+  animation: findusPulse 2s var(--ease) infinite;
 }
 
-@keyframes whatsappPulse {
+@keyframes findusPulse {
   0% {
     transform: scale(1);
     opacity: 1;
@@ -2301,7 +2344,7 @@ button {
 }
 
 /* Tooltip */
-.whatsapp-tooltip {
+.findus-tooltip {
   position: absolute;
   right: 72px;
   background: var(--dark);
@@ -2317,7 +2360,7 @@ button {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.whatsapp-tooltip::after {
+.findus-tooltip::after {
   content: '';
   position: absolute;
   right: -5px;
@@ -2327,7 +2370,58 @@ button {
   border-left-color: var(--dark);
 }
 
-.whatsapp-float:hover .whatsapp-tooltip {
+.findus-float:hover .findus-tooltip {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ================================================================
+   IMPRESSUM PAGE
+   ================================================================ */
+.impressum-page {
+  padding-top: 140px;
+}
+
+.impressum-content {
+  max-width: 680px;
+}
+
+.impressum-block {
+  margin-bottom: 32px;
+}
+
+.impressum-block h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.impressum-block p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.impressum-block a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.impressum-block a:hover {
+  color: var(--blue-dark);
+}
+
+/* Footer legal link */
+.footer-legal-link {
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s;
+}
+
+.footer-legal-link:hover {
+  color: var(--blue);
 }
