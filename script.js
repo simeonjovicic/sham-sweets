@@ -368,33 +368,33 @@ document.addEventListener('keydown', function (e) {
 /* --- Dynamic opening hours badge --- */
 (function () {
   function updateOpenStatus() {
-    /* Store is open Mo–So 10:00–22:00 (Vienna time, UTC+1/+2) */
     var now = new Date();
-    /* Get Vienna local time */
-    var viennaStr = now.toLocaleString('de-AT', { timeZone: 'Europe/Vienna' });
-    var vienna = new Date(viennaStr);
-    var hour = vienna.getHours();
-    var minute = vienna.getMinutes();
-    /* All 7 days, 10:00–22:00 */
+    var formatter = new Intl.DateTimeFormat('de-AT', {
+      timeZone: 'Europe/Vienna',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: false
+    });
+    var parts = formatter.formatToParts(now);
+    var hour = parseInt(parts.find(function (p) { return p.type === 'hour'; }).value, 10);
+    var minute = parseInt(parts.find(function (p) { return p.type === 'minute'; }).value, 10);
+
     var OPEN_HOUR = 10;
     var CLOSE_HOUR = 22;
-    var isOpen = (hour > OPEN_HOUR || (hour === OPEN_HOUR && minute >= 0)) &&
-      (hour < CLOSE_HOUR);
+    var isOpen = (hour >= OPEN_HOUR) && (hour < CLOSE_HOUR);
 
     var badges = document.querySelectorAll('.open-now');
     badges.forEach(function (badge) {
       if (isOpen) {
         var minsToClose = (CLOSE_HOUR - hour - 1) * 60 + (60 - minute);
         if (minsToClose <= 60) {
-          /* Less than 1 hour left */
           badge.textContent = '· Schließt in ' + minsToClose + ' Min ⚠️';
           badge.style.color = '#e07b00';
         } else {
           badge.textContent = '· Heute geöffnet';
-          badge.style.color = '';           /* green from CSS */
+          badge.style.color = '';
         }
       } else {
-        /* Work out next opening */
         var nextOpen = hour < OPEN_HOUR ? 'Heute um 10:00 Uhr' : 'Morgen um 10:00 Uhr';
         badge.textContent = '· Jetzt geschlossen – ' + nextOpen;
         badge.style.color = '#c0392b';
@@ -403,6 +403,5 @@ document.addEventListener('keydown', function (e) {
   }
 
   updateOpenStatus();
-  /* Re-check every 60 seconds */
   setInterval(updateOpenStatus, 60000);
 })();
