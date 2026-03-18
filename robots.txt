@@ -1,0 +1,9 @@
+# Sham Sweets – robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shamsweets.at/sitemap.xml
+
+# Crawl-delay (optional, für schonenden Crawl)
+Crawl-delay: 1

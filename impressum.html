@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-AT">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Impressum – Sham Sweets, Arabische Patisserie in Wien.">
-  <title>Impressum – Sham Sweets</title>
+  <title>Impressum – Sham Sweets Wien | Arabische Patisserie</title>
+  <meta name="description"
+    content="Impressum von Sham Sweets – Arabische Patisserie in Wien. Inhaber Abdullah Alhelal. Reinprechtsdorfer Str. 55, 1050 Wien.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shamsweets.at/impressum.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Impressum – Sham Sweets Wien">
+  <meta property="og:description" content="Impressum von Sham Sweets – Arabische Patisserie in Wien.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shamsweets.at/impressum.html">
+  <meta property="og:locale" content="de_AT">
 
   <link rel="icon" type="image/png" href="/assets/images/favicon-32.png" sizes="32x32">
   <link rel="apple-touch-icon" href="/assets/images/favicon-180.png">
@@ -15,6 +25,28 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Startseite",
+        "item": "https://shamsweets.at/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Impressum",
+        "item": "https://shamsweets.at/impressum.html"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -23,25 +55,28 @@
   <div class="grain-overlay" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav class="navbar scrolled" id="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="logo"><img src="/assets/images/logo.png" alt="Sham Sweets" class="logo-img" width="22"
-          height="34">Sham Sweets</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Startseite</a></li>
-        <li><a href="index.html#sham-story">Über uns</a></li>
-        <li><a href="index.html#bestsellers">Kreationen</a></li>
-        <li><a href="index.html#gallery">Store</a></li>
-        <li><a href="index.html#reviews">Bewertungen</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar scrolled" id="navbar" aria-label="Hauptnavigation">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo" aria-label="Sham Sweets – Startseite"><img src="/assets/images/logo.png"
+            alt="Sham Sweets Logo" class="logo-img" width="22" height="34">Sham Sweets</a>
+        <ul class="nav-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="index.html#sham-story">Über uns</a></li>
+          <li><a href="index.html#bestsellers">Kreationen</a></li>
+          <li><a href="index.html#gallery">Store</a></li>
+          <li><a href="index.html#reviews">Bewertungen</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false"
+          aria-controls="mobile-drawer">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
 
   <!-- Mobile drawer -->
-  <div class="mobile-drawer" id="mobile-drawer">
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-label="Mobile Navigation">
     <div class="mobile-drawer-content">
       <a href="index.html">Startseite</a>
       <a href="index.html#sham-story">Über uns</a>
@@ -51,9 +86,18 @@
     </div>
   </div>
 
-  <main>
+  <main id="main-content">
     <section class="section impressum-page">
       <div class="container">
+
+        <!-- Breadcrumb navigation -->
+        <nav aria-label="Breadcrumb" style="margin-bottom: 24px;">
+          <ol style="display:flex; gap:8px; font-size:0.82rem; color:var(--text-muted); list-style:none;">
+            <li><a href="index.html" style="color:var(--blue); text-decoration:underline;">Startseite</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">Impressum</li>
+          </ol>
+        </nav>
 
         <div class="impressum-content">
           <span class="section-label">Rechtliches</span>
@@ -70,9 +114,7 @@
 
           <div class="impressum-block">
             <h2>Inhaber</h2>
-            <p>
-              Abdullah Alhelal
-            </p>
+            <p>Abdullah Alhelal</p>
           </div>
 
           <div class="impressum-block">
@@ -123,7 +165,6 @@
   </footer>
 
   <script>
-    /* Minimal JS for impressum page — just hamburger */
     (function () {
       var btn = document.getElementById('hamburger');
       var drawer = document.getElementById('mobile-drawer');
